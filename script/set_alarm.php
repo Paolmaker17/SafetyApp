@@ -78,7 +78,7 @@ if ($stmt->execute()) {
 $sql = "SELECT * FROM LOG join Allarmi on FK_ID_ALLARME = ID_ALLARME WHERE stato = 1 LIMIT 1";
 $result = $conn->query($sql)->fetch_assoc();
 file_put_contents('/tmp/emergency', json_encode([
-    'STATO' => 0,
+    'STATO' => $result['STATO'],
     'MESSAGGIO' => $result['MESSAGGIO'],
     'DESCRIZIONE' => $descrizione
 ]));
