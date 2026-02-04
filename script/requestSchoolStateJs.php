@@ -37,7 +37,7 @@ if ($contents = file_get_contents("/tmp/emergency")) {
 
 $data['STATO'] = $data['STATO'] ?? 0;
 if (!isset($data['MESSAGGIO']))
-    $data['MESSAGGIO'] = $data['STATO'] ? "Nessun pericolo" : "Emergenza";
+    $data['MESSAGGIO'] = $data['STATO'] == 0 ? "Nessun pericolo" : "Emergenza";
 
 $data['DESCRIZIONE'] = $data['DESCRIZIONE'] ?? "Nessuna descrizione fornita";
 
