@@ -28,6 +28,7 @@ $result = $conn->query($sql);
 
 header('Content-Type: application/json; charset=utf-8');
 
+/*
 $data = [];
 if ($contents = file_get_contents("/tmp/emergency")) {
     $data = json_decode($contents, true);
@@ -42,8 +43,8 @@ if (!isset($data['MESSAGGIO']))
 $data['DESCRIZIONE'] = $data['DESCRIZIONE'] ?? "Nessuna descrizione fornita";
 
 echo json_encode($data);
+*/
 
-/*
 // Controlla se è stata trovata una corrispondenza
 if ($result->num_rows > 0) {
     // Preleva il record corrispondente
@@ -54,7 +55,7 @@ if ($result->num_rows > 0) {
 } else {
     echo json_encode(["STATO" => 0, "MESSAGGIO" => "No Pericolo", "DESCRIZIONE" => "tutto ok"]);
 }
-*/
+
 // Chiudi la connessione
 $conn->close();
 ?>
