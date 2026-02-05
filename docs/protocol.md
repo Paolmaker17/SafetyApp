@@ -22,7 +22,8 @@ E ricevono dal server una risposta formattata:
 
 ```http
 HTTP/1.1 200 OK
-<Headers>
+...
+
 {
   "STATO": 1,
   "MESSAGGIO": "Incendio aula 333",
@@ -34,7 +35,8 @@ Oppure
 
 ```http
 HTTP/1.1 200 OK
-<Headers>
+...
+
 {
   "STATO": 0
 }
@@ -44,7 +46,8 @@ Oppure
 
 ```http
 HTTP/1.1 200 OK
-<Headers>
+...
+
 {
   "ERROR": "Impossibile accedere al db"
 }
@@ -82,8 +85,81 @@ di quanti descritti, solo che né il client android né windows li utilizzano ve
 3. **Il comportamento del client descritto è definito in [questo file](https://github.com/AmedeoAlf/SafetyApp/blob/8e6eab5a2fe6c0b012a7d5c60e436e067229a5f9/app/src/main/java/it/edu/iisfermisacconiceciap/safetyapp/EmergencyState.kt)**
 
 4. **Per i prossimi che materranno gli script php: RICORDATE DI AGGIUNGERE
-`header('Content-Type: application/json;');` all'inizio di ogni file che risponde
+`header('Content-Type: application/json');` all'inizio di ogni file che risponde
 con JSON**
 
 > Altrimenti l'interprete php farà l'escaping di caratteri come `&`, rompendo la
 lettura
+
+## Dare l'allarme
+
+Per scatenare un allarme è necessaria una richiesta:
+
+```http
+POST /safetyApp/set_alarm.php HTTP/1.1
+Content-Type: "application/json"
+...
+
+{
+  "id": 2,
+  "desc": "Recarsi in sicurezza alle uscite di emergenza"
+}
+```
+
+Oppure (per disattivare l'allarme)
+
+```http
+POST /safetyApp/set_alarm.php HTTP/1.1
+Content-Type: "application/json"
+...
+
+{}
+```
+
+Dove:
+
+- `id` è l'indice nella tabella `Allarmi` (imposta quindi indirettamente il
+`MESSAGE` per `requestSchoolStateJs.php`), **non impostare il campo significa
+disattivare l'allarme**
+- `desc` è il valore del campo `DESCRIZIONE`, può essere omesso (ma viene
+rimpiazzato da una stringa non ideale, al momento: _Allarme emergenza generica_)
+
+La rispota del server sarà poi
+
+```http
+HTTP/1.1 200 OK
+...
+
+{
+  "message": "Operazione riuscita",
+  "id_allarme": 2
+}
+```
+
+Oppure (per la disattivazione dell'allarme)
+
+```http
+HTTP/1.1 200 OK
+...
+
+{
+  "message": "Operazione riuscita",
+  "id_allarme": null
+}
+```
+
+Oppure (in caso di errori)
+
+```http
+HTTP/1.1 200 OK
+...
+
+{
+  "message": "Error execute: errore probabilmente in inglese di mysqli"
+}
+```
+
+### NOTE
+
+1. `set_alarm.php` al momento è utilizzato soltanto dall'arduino, ma il suo obiettivo
+è rimpiazzare `gestisciallarme.php` e `resetAllarm.php` in futuro.
