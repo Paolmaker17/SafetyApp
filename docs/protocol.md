@@ -80,3 +80,10 @@ lancia un'eccezione quando il valore richiesto non è un intero
 di quanti descritti, solo che né il client android né windows li utilizzano veramente**
 
 3. **Il comportamento del client descritto è definito in [questo file](https://github.com/AmedeoAlf/SafetyApp/blob/8e6eab5a2fe6c0b012a7d5c60e436e067229a5f9/app/src/main/java/it/edu/iisfermisacconiceciap/safetyapp/EmergencyState.kt)**
+
+4. **Per i prossimi che materranno gli script php: RICORDATE DI AGGIUNGERE
+`header('Content-Type: application/json;');` all'inizio di ogni file che risponde
+con JSON**
+
+> Altrimenti l'interprete php farà l'escaping di caratteri come `&`, rompendo la
+lettura
