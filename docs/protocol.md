@@ -10,9 +10,7 @@ Da: Amedeo Alfonsi
 - Gli allarmi devono essere autenticati, mentre il controllo dello stato dell'allarme
 no
 
-## Funzionamento di base
-
-### Controllare lo stato di emergenza attuale
+## Controllare lo stato di emergenza attuale
 
 I client controllano lo stato mandando una richiesta del tipo:
 
@@ -52,10 +50,10 @@ HTTP/1.1 200 OK
 }
 ```
 
-#### NOTE
+### NOTE
 
-1. Il server ad un certo punto nello sviluppo ha smesso di ritornare gli errori
-nel campo "ERROR"
+1. **Il server ad un certo punto nello sviluppo ha smesso di ritornare gli errori
+nel campo "ERROR"**
 
 Bensì ritorna un messaggio del tipo:
 
@@ -78,7 +76,7 @@ fun JSONObject.getIntOrNull(key: String /* "STATO" in questo caso */ ): Int? {
 E [`JSONObject.getInt()`](https://developer.android.com/reference/org/json/JSONObject#getInt(java.lang.String))
 lancia un'eccezione quando il valore richiesto non è un intero
 
-2. L'implementazione attuale di `requestSchoolStateJs.php` ritorna molti più parametri
-di quanti descritti, solo che né il client android né windows li utilizzano veramente
+2. **L'implementazione attuale di `requestSchoolStateJs.php` ritorna molti più parametri
+di quanti descritti, solo che né il client android né windows li utilizzano veramente**
 
-3. Il comportamento del client descritto è definito in [questo file](https://github.com/AmedeoAlf/SafetyApp/blob/8e6eab5a2fe6c0b012a7d5c60e436e067229a5f9/app/src/main/java/it/edu/iisfermisacconiceciap/safetyapp/EmergencyState.kt)
+3. **Il comportamento del client descritto è definito in [questo file](https://github.com/AmedeoAlf/SafetyApp/blob/8e6eab5a2fe6c0b012a7d5c60e436e067229a5f9/app/src/main/java/it/edu/iisfermisacconiceciap/safetyapp/EmergencyState.kt)**
