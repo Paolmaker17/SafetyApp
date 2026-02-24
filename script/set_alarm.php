@@ -1,13 +1,14 @@
 <?php
 /*
  * Riceve una richiesta POST con parametri
- * - 'id': l'id dalla tabella 'Allarmi' del DB, altrimenti disattiva l'allarme
+ * - 'id': (opzionale) l'id dalla tabella 'Allarmi' del DB, altrimenti disattiva l'allarme
  *   ^ 07/01/2026 i valori accettati sono:
  *     1 (Allarme Terremoto)
  *     2 (Allarme Incendio)
  *     3 (Allarme Alluvione)
  *     4 (Allarme generico)
  * - 'desc': la descrizione da mostrare sui dispositivi, la linea sotto il tipo di allarme (stringa)
+ * - 'messaggio': (opzionale) il testo principale dell'allarme, sovrascrive il messaggio del database
  */
 
 
@@ -37,7 +38,7 @@ if (isset($new_id)) {
     }
 
     $amministratore = 'pulsante';
-    $descrizione = isset($_POST['desc']) ? $_POST['desc'] : 'Allarme emergenza generica';
+    $descrizione = $_POST['desc'] ?? 'Allarme emergenza generica';
     $stato = 1;
 
     $stmt->bind_param(
@@ -75,11 +76,13 @@ if ($stmt->execute()) {
     ]);
 }
 
-$sql = "SELECT * FROM LOG join Allarmi on FK_ID_ALLARME = ID_ALLARME WHERE stato = 1 LIMIT 1";
-$result = $conn->query($sql)->fetch_assoc();
+if (!isset($_POST['messaggio'])) {
+    $sql = "SELECT * FROM LOG join Allarmi on FK_ID_ALLARME = ID_ALLARME WHERE stato = 1 LIMIT 1";
+    $result = $conn->query($sql)->fetch_assoc();
+}
 file_put_contents('/tmp/emergency', json_encode([
     'STATO' => $result['STATO'],
-    'MESSAGGIO' => $result['MESSAGGIO'],
+    'MESSAGGIO' => $_POST['messaggio'] ?? $result['MESSAGGIO'],
     'DESCRIZIONE' => $descrizione
 ]));
 
