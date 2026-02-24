@@ -50,7 +50,7 @@ if (isset($new_id)) {
     );
 
 } else {
-
+    $stato = 0;
     // Disattivazione allarme (più sicura di DELETE)
     $stmt = $conn->prepare(
         "UPDATE LOG SET STATO = 0 WHERE STATO = 1"
@@ -81,7 +81,7 @@ if (!isset($_POST['messaggio'])) {
     $result = $conn->query($sql)->fetch_assoc();
 }
 file_put_contents('/tmp/emergency', json_encode([
-    'STATO' => $result['STATO'],
+    'STATO' => $stato,
     'MESSAGGIO' => $_POST['messaggio'] ?? $result['MESSAGGIO'],
     'DESCRIZIONE' => $descrizione
 ]));
