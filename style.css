@@ -1,9 +1,15 @@
-.color-body {
-    background-color: #FFF2ED;
+:root{
+    --bg: #FDF6F3;
+    --card: #FFFFFF;
+    --soft: #FFF1EB;
+    --allarm: #FF7A45;
+    --allarm-hover: #FF6A2E;
+    --border: #F3D2C6;
+    --text: #2A2A2A;
+    --text-light: #7A7A7A;
 }
-.color-main {
-    background-color: #FFF9F7;
-}
-.color-islands {
-    background-color: #FDE8DF;
+
+.nunito{
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
 }
