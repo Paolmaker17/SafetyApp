@@ -2,10 +2,8 @@
 <html>
 <head>
   <link rel="icon" type="image/png" href="">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -17,15 +15,15 @@
 
     <!-- Tabs -->
     <div class="flex border-b border-[var(--border)]">
-      <button class="px-6 py-2 bg-[var(--card)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium">
+      <button disabled data-name="invioAllarme" class="px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] disabled:hover:bg-[var(--card)] transition">
         Invio Allarme
       </button>
 
-      <button class="px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] transition">
+      <button data-name="allarmi" class="px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] disabled:hover:bg-[var(--card)] transition">
         Allarmi
       </button>
 
-      <button class="px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] transition">
+      <button data-name="utenti" class="px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] disabled:hover:bg-[var(--card)] transition">
         Utenti
       </button>
     </div>
@@ -46,7 +44,7 @@
           </div>
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-24 flex items-center">
-            <button class="w-full h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white font-semibold rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">Invia Allarme</button>
+            <button class="w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">Invia Allarme</button>
           </div>
         </div>
 
@@ -68,7 +66,19 @@
         </div>
       </div>
 
+      <!-- Content Allarmi -->
+      <div class="flex gap-6" id="allarmi">
+
+      </div>
+
+      <!-- Content Utenti-->
+      <div class="flex gap-6" id="utenti">
+
+      </div>
+
     </div>
   </div>
+  
+  <script src="index.js"></script>
 </body>
 </html>
