@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <link rel="icon" type="image/png" href="">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,19 +16,19 @@
   <div class="relative top-16 w-[85%] max-w-5xl">
 
     <!-- Tabs -->
-    <div class="flex border-b border-[var(--border)]">
+    <div class="flex border-b border-[var(--border)] text-[var(--text-light)]">
       <button disabled data-name="invioAllarme"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
         Invio Allarme
       </button>
 
       <button data-name="allarmi"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
         Allarmi
       </button>
 
       <button data-name="utenti"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-medium hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
         Utenti
       </button>
     </div>
@@ -61,7 +60,7 @@
 
         <div class="w-2/3 bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-64 flex flex-col">
           <label class="mb-2 font-semibold text-[var(--text-light)]">Descrizione</label>
-          <textarea class="w-full 
+          <textarea spellcheck="false" class="w-full 
                           h-full 
                           p-3 
                           resize-none 
@@ -90,9 +89,19 @@
       </div>
 
     </div>
+
+    <!-- Stato Allarme -->
+    <div class="relative top-12 bg-[var(--card)] shadow-xl rounded-4xl p-4 border border-[var(--border)] font-bold">
+      <div id="on" class="hidden bg-[var(--allarm-on)]/70 shadow-xl rounded-3xl p-3 text-center text-[var(--allarm-on-text)]">
+        L'allarme è attualmente attivo, bella non è :(
+      </div>
+
+      <div id="off" class="bg-[var(--allarm-off)]/70 shadow-xl rounded-3xl p-3 text-center text-[var(--allarm-off-text)]">
+        L'allarme è attualmente spento, siamo al sicuro :)
+      </div>
+    </div>
   </div>
 
   <script src="index.js"></script>
 </body>
-
 </html>
