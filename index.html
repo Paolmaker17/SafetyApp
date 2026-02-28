@@ -11,6 +11,37 @@
 </head>
 <body class="flex justify-center bg-[var(--bg)] text-[var(--text)] inter select-none">
 
+  <!-- Toggle Tema -->
+  <div id="menu" class="absolute left-3 top-3 cursor-pointer">
+    <div id="user" class="flex items-center gap-2 bg-[var(--card)] border border-[var(--border)] px-3 py-2 rounded-2xl shadow-md transition hover:shadow-lg">
+
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        height="28px" 
+        viewBox="0 -960 960 960" 
+        width="28px" 
+        fill="var(--border)"
+        class="transition duration-300">
+        <path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM520-163q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/>
+      </svg>
+
+      <!-- Toggle -->
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="toggle" class="sr-only peer">
+
+        <div class="w-14 h-7 bg-[var(--soft)] border border-[var(--border)] rounded-full 
+                    peer-checked:bg-[var(--allarm)] 
+                    transition-colors duration-300">
+        </div>
+
+        <div class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full shadow-md 
+                    transition-transform duration-300 
+                    peer-checked:translate-x-7">
+        </div>
+      </label>
+    </div>
+  </div>
+
   <!-- User -->
   <div id="menu" class="absolute right-3 top-3 cursor-pointer">
     <div id="user" class="flex items-center gap-3 bg-[var(--card)] border border-[var(--border)] px-4 py-2 rounded-2xl shadow-md transition hover:shadow-lg">
@@ -104,11 +135,11 @@
       <!-- Content Allarmi -->
       <div class="flex gap-6" id="allarmi">
         <div class="w-1/2 space-y-4 pt-1">
-          <div class="w-full bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-32 flex flex-col">
+          <div class="w-full bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-32 flex flex-col">
             <label class="mb-2 font-semibold text-[var(--text-light)]">Nome Nuovo Allarme</label>
             <textarea spellcheck="false" class="w-full 
                             h-full 
-                            p-3 
+                            p-3
                             resize-none 
                             rounded-xl 
                             border 

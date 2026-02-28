@@ -1,3 +1,4 @@
+// Getione Tabs 
 const buttons = [
     document.querySelector("[data-name='invioAllarme']"),
     document.querySelector("[data-name='allarmi']"),
@@ -36,6 +37,29 @@ wrapper.addEventListener("mouseleave", () => {
         dropdown.classList.add("opacity-0", "translate-y-2", "pointer-events-none")
         dropdown.classList.remove("opacity-100", "translate-y-0")
     }, 50)
+})
+
+// Gestione Tema
+const toggle = document.getElementById("toggle")
+const applyTheme = (theme) => {
+    if (theme === "dark") {
+        document.documentElement.classList.add("dark")
+        toggle.checked = true
+    } else {
+        document.documentElement.classList.remove("dark")
+        toggle.checked = false
+    }
+    localStorage.setItem("theme", theme)
+}
+
+toggle.addEventListener("change", () => {
+    const theme = toggle.checked ? "dark" : "light"
+    applyTheme(theme)
+})
+
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "light"
+    applyTheme(savedTheme)
 })
 
 // Returns the server response, should be shown to the user
