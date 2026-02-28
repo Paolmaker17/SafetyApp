@@ -20,6 +20,24 @@ for (const b of buttons) {
     }
 }
 
+// Getione Menù a Tendina Utente
+const wrapper = document.getElementById("menu")
+const dropdown = document.getElementById("dropdown")
+let timeout
+
+wrapper.addEventListener("mouseenter", () => {
+    clearTimeout(timeout)
+    dropdown.classList.remove("opacity-0", "translate-y-2", "pointer-events-none")
+    dropdown.classList.add("opacity-100", "translate-y-0")
+})
+
+wrapper.addEventListener("mouseleave", () => {
+    timeout = setTimeout(() => {
+        dropdown.classList.add("opacity-0", "translate-y-2", "pointer-events-none")
+        dropdown.classList.remove("opacity-100", "translate-y-0")
+    }, 50)
+})
+
 // Returns the server response, should be shown to the user
 async function set_alarm(idOrMessage, desc) {
     const response = await fetch(
