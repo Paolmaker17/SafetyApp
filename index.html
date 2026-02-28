@@ -9,7 +9,7 @@
 
   <title>Safety App</title>
 </head>
-<body class="flex justify-center bg-[var(--bg)] text-[var(--text)] inter select-none">
+<body class="flex justify-center items-center bg-[var(--bg)] text-[var(--text)] inter select-none">
 
   <!-- Toggle Tema -->
   <div class="absolute left-3 top-3 cursor-pointer">
@@ -69,10 +69,10 @@
     </div>
   </div>
   
-  <div class="relative top-24 w-[85%] max-w-5xl">
+  <div class="relative top-24 w-[85%] max-w-5xl flex flex-col items-center">
     
     <!-- Tabs -->
-    <div class="flex border-b border-[var(--border)] text-[var(--text-light)]">
+    <div class="flex border-b border-[var(--border)] text-[var(--text-light)] self-start">
       <button disabled data-name="invioAllarme"
         class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Invio Allarme
@@ -89,7 +89,7 @@
       </button>
     </div>
 
-    <div class="bg-[var(--card)] shadow-xl rounded-b-xl p-6 border border-t-0 border-[var(--border)]">
+    <div class="bg-[var(--card)] shadow-xl rounded-b-xl p-6 border border-t-0 border-[var(--border)] w-full">
 
       <!-- Content Invio Allarme -->
       <div class="flex gap-6" id="invioAllarme">
@@ -185,13 +185,14 @@
     </div>
 
     <!-- Stato Allarme -->
-    <div class="relative left-[25%] w-[50%] top-12 bg-[var(--card)] shadow-xl rounded-4xl p-4 border border-[var(--border)] font-bold">
-      <div id="on" class="hidden bg-[var(--allarm-on)]/70 shadow-xl rounded-3xl p-3 text-center text-[var(--allarm-on-text)]">
-        L'allarme è attualmente attivo, bella non è :(
-      </div>
-
-      <div id="off" class="bg-[var(--allarm-off)]/70 shadow-xl rounded-3xl p-3 text-center text-[var(--allarm-off-text)]">
-        L'allarme è attualmente spento, siamo al sicuro :)
+    <div class="top-12 w-130 max-w-full bg-[var(--card)] shadow-xl rounded-4xl p-4 border border-[var(--border)] mt-10">
+      <div class="flex items-center gap-3 h-min">
+        <div id="statusDot" class="w-3 h-3 bg-gray-500 rounded-full m-1"></div>
+        <div class="w-px self-stretch bg-(--text-light)"></div>
+        <div class="flex-1 flex flex-col">
+          <div id="statusMessage" class="text-xl">Connessione in corso al server</div>
+          <div id="statusDesc" class="">Lo stato sarà aggiornato a breve</div>
+        </div>
       </div>
     </div>
   </div>
