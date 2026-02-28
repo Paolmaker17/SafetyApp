@@ -74,17 +74,17 @@
     <!-- Tabs -->
     <div class="flex border-b border-[var(--border)] text-[var(--text-light)]">
       <button disabled data-name="invioAllarme"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Invio Allarme
       </button>
 
       <button data-name="allarmi"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Allarmi
       </button>
 
       <button data-name="utenti"
-        class="disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold hover:bg-[#FFE4D9] disabled:bg-[var(--card)] transition">
+        class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Utenti
       </button>
     </div>
@@ -107,7 +107,7 @@
           <hr class="text-[var(--border)]">
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-24 flex items-center">
-            <button class="w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            <button class="butt w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
               Invia Allarme</button>
           </div>
         </div>
@@ -155,7 +155,7 @@
           </div>
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-24 flex items-center">
-            <button class="w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            <button class="butt w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
             Aggiungi Tipologia Allarme</button>
           </div>
         </div>
@@ -171,7 +171,7 @@
           </div>
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-24 flex items-center">
-            <button class="w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            <button class="butt w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
             Rimuovi Tipologia Allarme</button>
           </div>
         </div>
