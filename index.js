@@ -92,16 +92,16 @@ async function updateIndicator() {
   try {
     const respose = await fetch_alarm();
     if (response.STATO == 0) {
-      statusDot.style.background = "green";
+      statusDot.style.background = "#8EDF2A";
       statusMessage.textContent = "SafetyApp è in funzione";
       statusDesc.textContent = "Nessuna emergenza in corso";
     } else {
-      statusDot.style.background = "yellow";
+      statusDot.style.background = "#ffd760ff";
       statusMessage.textContent = response.MESSAGE;
       statusDesc.textContent = response.DESCRIZIONE;
     }
   } catch (e) {
-    statusDot.style.background = "red";
+    statusDot.style.background = "#D33643";
     statusMessage.textContent = "Errore del server";
     statusDesc.textContent = e;
   }

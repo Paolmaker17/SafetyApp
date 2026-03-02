@@ -72,7 +72,7 @@
   <div class="relative top-24 w-[85%] max-w-5xl flex flex-col items-center">
     
     <!-- Tabs -->
-    <div class="flex border-b border-[var(--border)] text-[var(--text-light)] self-start">
+    <div class="flex border-b border-[var(--border)] text-[var(--text-light)] self-start w-full">
       <button disabled data-name="invioAllarme"
         class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Invio Allarme
@@ -185,12 +185,12 @@
     </div>
 
     <!-- Stato Allarme -->
-    <div class="top-12 w-130 max-w-full bg-[var(--card)] shadow-xl rounded-4xl p-4 border border-[var(--border)] mt-10">
+    <div class="text-(--text-status) top-12 w-130 max-w-full bg-[var(--card)] shadow-xl rounded-4xl p-4 border border-[var(--border)] mt-10">
       <div class="flex items-center gap-3 h-min">
         <div id="statusDot" class="w-3 h-3 bg-gray-500 rounded-full m-1"></div>
         <div class="w-px self-stretch bg-(--text-light)"></div>
         <div class="flex-1 flex flex-col">
-          <div id="statusMessage" class="text-xl">Connessione in corso al server</div>
+          <div id="statusMessage" class="text-xl font-semibold">Connessione in corso al server</div>
           <div id="statusDesc" class="">Lo stato sarà aggiornato a breve</div>
         </div>
       </div>

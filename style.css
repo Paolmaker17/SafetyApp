@@ -8,9 +8,9 @@
     --text-light: #7A7A7A;
     --tab-hover: #FFE4D9;
 
+    --text-status: #474747;
     --allarm-on: #8EDF2A;
     --allarm-off: #D33643;
-    --allarm-on-text: #37590D;
     --allarm-off-text: #751A21;
 }
 .dark {
@@ -24,10 +24,9 @@
   --text-light: #B0B0B0;
   --tab-hover: #282525;
 
-  --allarm-on: #6FCF1F;
+  --text-status: #dce6eb;
   --allarm-off: #C53030;
-  --allarm-on-text: #E9FFD5;
-  --allarm-off-text: #FFD6D6;
+  --allarm-off-text: rgb(170, 38, 49)
 }
 *:not(.butt) {
   transition: background-color 0.3s ease, 
