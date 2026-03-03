@@ -15,7 +15,7 @@ no
 I client controllano lo stato mandando una richiesta del tipo:
 
 ```http
-POST /safetyApp/requestSchoolStateJs.php HTTP/1.1
+GET /safetyApp/requestSchoolStateJs.php HTTP/1.1
 ```
 
 E ricevono dal server una risposta formattata:
