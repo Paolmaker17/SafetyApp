@@ -38,6 +38,3 @@
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
-#countdown-bar {
-  transition: width 1s linear;
-}

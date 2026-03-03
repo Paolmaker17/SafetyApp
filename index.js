@@ -1,22 +1,63 @@
+// Gestione PopUp
+let duration = 5000
+let timer
+let startTime
+let remaining = duration
 
-// let timeLeft = 10
-// const interval = setInterval(() => {
-//     timeLeft--
-//     document.getElementById('countdown-bar').style.width = (timeLeft * 10) + '%'
+setTimeout(() => {
+  popUpWindow.classList.remove("translate-y-10", "opacity-0")
+}, 100)
+startTimer()
 
-//     if (timeLeft <= 0) {
-//         clearInterval(interval)
-//         popUpWindow.style.display="none"
-//     }
-// }, 1000)
+function startTimer() {
+  startTime = Date.now()
 
-// popUpWindow.addEventListener("mouseenter", () => {
-//   document.getElementById('countdown-bar').style.width = 100 + '%';
-//   clearInterval(interval)
-// })
+  countdownBar.style.transition = "none"
+  countdownBar.style.width = "100%"
 
-// popUpWindow.addEventListener("mouseleave", () => {
-// })
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      countdownBar.style.transition = `width ${remaining}ms linear`
+      countdownBar.style.width = "0%"
+    })
+  })
+
+  timer = setTimeout(closePopup, remaining)
+}
+
+function pauseTimer() {
+  clearTimeout(timer)
+
+  const elapsed = Date.now() - startTime
+  remaining -= elapsed
+
+  const percentLeft = (remaining / duration) * 100
+  countdownBar.style.transition = "none"
+  countdownBar.style.width = percentLeft + "%"
+}
+
+function resetTimer() {
+  clearTimeout(timer)
+  remaining = duration
+
+  countdownBar.style.transition = "none"
+  countdownBar.style.width = "100%"
+}
+
+function closePopup() {
+  popUpWindow.classList.add("translate-y-10", "opacity-0")
+  setTimeout(() => popUpWindow.style.display = "hidden", 300)
+}
+
+popUpWindow.addEventListener("mouseenter", () => {
+  pauseTimer()
+  resetTimer()
+})
+popUpWindow.addEventListener("mouseleave", () => {
+  remaining = duration
+  startTimer()
+})
+closePopupBut.addEventListener("click", closePopup)
 
 // Getione Tabs
 const buttons = [
