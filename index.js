@@ -90,7 +90,7 @@ async function fetch_alarm() {
 
 async function updateIndicator() {
   try {
-    const respose = await fetch_alarm();
+    const response = await fetch_alarm();
     if (response.STATO == 0) {
       statusDot.style.background = "#8EDF2A";
       statusMessage.textContent = "SafetyApp è in funzione";
