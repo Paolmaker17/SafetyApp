@@ -210,12 +210,13 @@
 
   <!-- Pop Up Window -->
   <div id="popUpWindow"
-    class="fixed right-4 bottom-4 w-80 rounded-2xl overflow-hidden
+    class="fixed right-4 bottom-10 w-80 rounded-2xl overflow-hidden
           bg-(--card)/70 backdrop-blur-md
           border border-(--border) shadow-xl
-          translate-y-10 opacity-0
+          opacity-0 translate-y-6 scale-95
           transition-all duration-300 ease-out
-          justify-center">
+          hover:scale-[1.02] hover:shadow-2xl
+          transition-transform">
 
     <div class="absolute top-0 left-0 w-full h-1 bg-black/10">
       <div id="countdownBar"
@@ -276,7 +277,7 @@
 
     </div>
   </div>
-
+  
   <script src="index.js"></script>
 </body>
 </html>

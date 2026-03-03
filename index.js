@@ -45,7 +45,7 @@ function resetTimer() {
 }
 
 function closePopup() {
-  popUpWindow.classList.add("translate-y-10", "opacity-0")
+  popUpWindow.classList.add("translate-y-6", "opacity-0", "scale-95")
   setTimeout(() => popUpWindow.style.display = "hidden", 300)
 }
 
