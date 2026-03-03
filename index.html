@@ -20,7 +20,7 @@
         height="28px" 
         viewBox="0 -960 960 960" 
         width="28px" 
-        fill="var(--border)"
+        fill="var(--text-light)"
         class="transition duration-300">
         <path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM520-163q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/>
       </svg>
@@ -78,10 +78,10 @@
         Invio Allarme
       </button>
 
-      <button data-name="allarmi"
+      <!-- <button data-name="allarmi"
         class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
         Allarmi
-      </button>
+      </button> -->
 
       <button data-name="utenti"
         class="tab disabled:translate-y-px px-6 py-2 bg-[var(--soft)] border border-[var(--border)] border-b-0 rounded-t-xl font-semibold enabled:hover:bg-[var(--tab-hover)] disabled:bg-[var(--card)] transition">
@@ -94,23 +94,25 @@
       <!-- Content Invio Allarme -->
       <div class="flex gap-6" id="invioAllarme">
 
-        <div class="w-1/3 space-y-4">
+        <form class="w-1/3 space-y-4">
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-            <select class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <option value="1">Allarme Terremoto</option>
-              <option value="2">Allarme Incendio</option>
-              <option value="3">Allarme Alluvione</option>
-              <option value="4" selected>Allarme Generico</option>
-            </select>
+            <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text" class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+          
+            <datalist id="listAllarm">
+              <option value="Allarme Terremoto"></option>
+              <option value="Allarme Incendio"></option>
+              <option value="Allarme Alluvione"></option>
+              <option value="Allarme Generico"></option>
+            </datalist>
           </div>
 
           <hr class="text-[var(--border)]">
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-24 flex items-center">
-            <button class="butt w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            <button type="submit" class="butt w-full font-extrabold h-full bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
               Invia Allarme</button>
           </div>
-        </div>
+        </form>
 
         <div class="w-2/3 bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-64 flex flex-col">
           <label class="mb-2 font-semibold text-[var(--text-light)]">Descrizione</label>
@@ -132,7 +134,7 @@
         </div>
       </div>
 
-      <!-- Content Allarmi -->
+      <!-- Content Allarmi 
       <div class="hidden gap-6" id="allarmi">
         <div class="w-1/2 space-y-4 pt-1">
           <div class="w-full bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 h-32 flex flex-col">
@@ -175,7 +177,7 @@
             Rimuovi Tipologia Allarme</button>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <!-- Content Utenti-->
       <div class="hidden gap-6" id="utenti">
@@ -195,6 +197,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
   <script src="index.js"></script>

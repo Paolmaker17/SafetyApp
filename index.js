@@ -1,10 +1,9 @@
 // Getione Tabs
 const buttons = [
   document.querySelector("[data-name='invioAllarme']"),
-  document.querySelector("[data-name='allarmi']"),
   document.querySelector("[data-name='utenti']"),
 ];
-const pages = [invioAllarme, allarmi, utenti];
+const pages = [invioAllarme, utenti];
 
 for (const b of buttons) {
   b.onclick = (e) => {
