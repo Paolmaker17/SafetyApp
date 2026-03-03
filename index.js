@@ -1,3 +1,23 @@
+
+// let timeLeft = 10
+// const interval = setInterval(() => {
+//     timeLeft--
+//     document.getElementById('countdown-bar').style.width = (timeLeft * 10) + '%'
+
+//     if (timeLeft <= 0) {
+//         clearInterval(interval)
+//         popUpWindow.style.display="none"
+//     }
+// }, 1000)
+
+// popUpWindow.addEventListener("mouseenter", () => {
+//   document.getElementById('countdown-bar').style.width = 100 + '%';
+//   clearInterval(interval)
+// })
+
+// popUpWindow.addEventListener("mouseleave", () => {
+// })
+
 // Getione Tabs
 const buttons = [
   document.querySelector("[data-name='invioAllarme']"),

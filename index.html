@@ -209,19 +209,21 @@
   </div>
 
   <!-- Pop Up Window -->
-  <div id="popUpWindow" class="border-2 border-(--border) absolute right-1 bottom-1 w-80 h-18 rounded-2xl">
-    <div class="w-full h-1 bg-gray-500 mt-1"></div>
+  <div id="popUpWindow" class="border border-(--border) absolute right-3 bottom-3 w-78 rounded-2xl overflow-hidden bg-(--card)/70 h-max">
+    <div id="countdown-bar" class="w-full h-1 bg-(--allarm) absolute"></div>
 
-    <div>
-      <div>
-          
+    <div class="flex flex-wrap p-2 pr-3 items-center justify-center">
+      <svg width="40" height="40" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" 
+          transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" 
+          stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.288"></g><g id="SVGRepo_iconCarrier"> 
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" fill="#8EDF2A"></path> </g>
+      </svg>
+      <div class="w-[200px] ml-1 mr-3 h-max text-(--text-status) font-bold text-base">
+        Boss è quasi funzionante
       </div>
-      <div>
-
-      </div>
-      <div>
-
-      </div>
+      <svg onclick="javascript:this.parentElement.parentElement.style.display='none'" width="24px" height="24px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#474747"><g id="SVGRepo_bgCarrier" 
+          stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+            <path d="M3 21.32L21 3.32001" stroke="#474747" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 3.32001L21 21.32" stroke="#474747" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
     </div>
   </div>
 

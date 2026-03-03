@@ -28,6 +28,7 @@
   --allarm-off: #C53030;
   --allarm-off-text: rgb(170, 38, 49)
 }
+
 *:not(.butt) {
   transition: background-color 0.3s ease, 
               border-color 0.3s ease,
@@ -36,4 +37,7 @@
 .inter{
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+}
+#countdown-bar {
+  transition: width 1s linear;
 }
