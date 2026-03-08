@@ -4,11 +4,6 @@ let timer
 let startTime
 let remaining = duration
 
-setTimeout(() => {
-  popUpWindow.classList.remove("translate-y-10", "opacity-0")
-}, 100)
-startTimer()
-
 function startTimer() {
   startTime = Date.now()
 
