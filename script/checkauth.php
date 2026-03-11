@@ -4,5 +4,6 @@ if(!isset($_SESSION['autenticato'])){
     session_unset();
     session_destroy();
     header("Location: login.html");
+    exit;
 }
 ?>
