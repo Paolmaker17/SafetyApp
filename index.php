@@ -125,6 +125,10 @@ include 'checkauth.php';
           </div>
 
         </form>
+            <button
+            id="stopAllarmeBtn"
+              class="butt w-full font-extrabold h-20 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+              Stop Allarme</button>
 
         <div class="w-2/3 bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-64 flex flex-col">
           <label class="mb-2 font-semibold text-[var(--text-light)]">Descrizione</label>

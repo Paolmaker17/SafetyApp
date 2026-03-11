@@ -108,6 +108,15 @@ async function set_alarm(idOrMessage, desc) {
   return json.message;
 }
 
+async function stop_alarm() {
+  const response = await fetch("set_alarm.php", {
+    method: "POST",
+    body: new URLSearchParams({}),
+  });
+  const json = await response.json();
+  return json.message;
+}
+
 // Returns the emergency, state
 // Should contain
 // "STATO": 0 se tutto apposto, 1 se in emergenza
@@ -153,3 +162,5 @@ document.forms.inviaForm.onclick = async (ev) => {
   }, 100)
   startTimer()
 };
+
+stopAllarmBtn.onclick = () => { stop_alarm() }
