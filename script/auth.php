@@ -1,74 +1,59 @@
 <?php
-    include('dbconn.php');
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //recupero username e password
-        $username = isset($_POST['username']) ? trim($_POST['username']) : ''; //IF isset, trim, else nothing ('')
-        $password = isset($_POST['password']) ? trim($_POST['password']) : ''; //IF isset, trim, else nothing ('')
-        //evitiamo XSS (cross site scripting)
-        $username = htmlspecialchars($username, ENT_QUOTES, 'UTF-8');
-        $password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
-        //Verifichiamo che i campi non siano vuoti
-        if(empty($username) || empty($password)){
-            echo json_encode(
-                array(
-                    "status" => "error",
-                    "messaggio" => "Auth: username o password vuoti"
-                )
-            );
-            exit;
-        }
-        //Prepariamo query SQL
-        $qry_str = "SELECT * FROM utenti WHERE username = '$username';";
-        $stmt = $conn->query($qry_str);
+include 'dbconn.php';
 
+function sanitize($param): string
+{
+    if (!isset($_POST[$param]))
+        throw new Exception("Auth: parametro $param vuoto");
+    $param = htmlspecialchars(trim($_POST[$param]));
+    if (empty($param))
+        throw new Exception("Auth: parametro $param vuoto");
+    return $param;
+}
 
+try {
 
+    $username = sanitize('username');
+    $password = sanitize('password');
 
-        $num_righe = $conn->affected_rows;
-        if($num_righe == 1){
-            // OK ho letto un solo utente
-            $row = $stmt -> fetch_assoc();
-            $db_pass = $row["password"];
-            $db_salt = $row["salt"];
-            $crypted_pass = hash('sha512', $password.$db_salt);
-            if($db_pass == $crypted_pass){
-                //Autenticato
-                //Registrare SESSIONE su server
+    if (empty($username) || empty($password))
+        throw new Exception("Auth: username o password vuoti");
 
-                session_start();
-                $_SESSION["autenticato"] = true;
-                $_SESSION["username"] = $username;
-                $_SESSION["time"] = time();
-                header(header: 'Location:index.php');
+    $stmt = $conn->execute_query("SELECT * FROM utenti WHERE username = ?", [$username]);
 
-
-            }else{
-                //Non autenticato
-                echo json_encode(
-                    array(
-                        "status" => "error",
-                        "messaggio" => "Auth: Nome utente o password errato1."
-                    )
-                );
-            }
-        }else if($num_righe == 0){
-            echo json_encode(
-                array(
-                    "status" => "error",
-                    "messaggio" => "Auth: Nome utente o password non corretto."
-                )
-            );
-        }else{
-            echo json_encode(
-                array(
-                    "status" => "error",
-                    "messaggio" => "Auth: più utenti con le stesse credenziali."
-                )
-            );
-        }
-    }else{
-        header("Location:login.php");
-        die();
+    // Controlla se è presente l'username
+    switch ($conn->affected_rows) {
+        case 1:
+            break;
+        case 0:
+            throw new Exception("Auth: Nome utente o password non corretto.");
+        default:
+            throw new Exception("Auth: più utenti con le stesse credenziali.");
     }
-    ?>
+
+    $row = $stmt->fetch_assoc();
+    $db_pass = $row["password"];
+    $db_salt = $row["salt"];
+    $crypted_pass = hash('sha512', $password . $db_salt);
+
+    if ($db_pass != $crypted_pass)
+        throw new Exception("Auth: Nome utente o password non corretto.");
+
+    // Autenticato!
+    // Registrare SESSIONE su server
+    session_start();
+    $_SESSION["autenticato"] = true;
+    $_SESSION["username"] = $username;
+    $_SESSION["time"] = time();
+    header(header: 'Location:index.php');
+
+} catch (Exception $e) {
+    echo json_encode(
+        [
+            "status" => "error",
+            "messaggio" => $e->getMessage()
+        ]
+    );
+}
+?>
