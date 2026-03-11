@@ -15,7 +15,7 @@ E risponde attraverso un
 
 ```HTTP
 HTTP/1 200 OK
-Location: index.php
+Location: index.html
 ...
 ```
 
