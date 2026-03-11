@@ -124,7 +124,7 @@ disattivare l'allarme**
 - `desc` è il valore del campo `DESCRIZIONE`, può essere omesso (ma viene
 rimpiazzato da una stringa non ideale, al momento: _Allarme emergenza generica_)
 
-La rispota del server sarà poi
+La risposta del server sarà poi
 
 ```http
 HTTP/1.1 200 OK
