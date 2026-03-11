@@ -3,6 +3,7 @@ include 'checkauth.php';
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="icon" type="image/png" href="">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,7 @@ include 'checkauth.php';
 
   <title>SafetyApp</title>
 </head>
+
 <body class="flex justify-center items-center bg-[var(--bg)] text-[var(--text)] inter select-none">
 
   <!-- Toggle Tema -->
@@ -101,9 +103,9 @@ include 'checkauth.php';
       <!-- Content Invio Allarme -->
       <div class="flex gap-6" id="invioAllarme">
 
-        <form class="w-1/3 space-y-4">
+        <form class="w-1/3 space-y-4" name="inviaForm">
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-            <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text"
+            <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text" id="messaggioInput"
               class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
             <datalist id="listAllarm">
@@ -118,13 +120,7 @@ include 'checkauth.php';
 
           <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center">
             <button type="submit"
-              class="butt w-full font-extrabold h-20 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg"              
-              onClick="javascript:{
-                setTimeout(() => {
-                  popUpWindow.classList.remove('translate-y-10', 'opacity-0')
-                }, 100)
-                startTimer()
-              }">
+              class="butt w-full font-extrabold h-20 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
               Invia Allarme</button>
           </div>
 
@@ -132,7 +128,7 @@ include 'checkauth.php';
 
         <div class="w-2/3 bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-64 flex flex-col">
           <label class="mb-2 font-semibold text-[var(--text-light)]">Descrizione</label>
-          <textarea spellcheck="false" class="w-full 
+          <textarea id="descInput" spellcheck="false" class="w-full 
                           h-full 
                           p-3 
                           resize-none 
@@ -218,8 +214,7 @@ include 'checkauth.php';
   </div>
 
   <!-- Pop Up Window -->
-  <div id="popUpWindow"
-    class="fixed right-4 bottom-10 w-80 rounded-2xl overflow-hidden
+  <div id="popUpWindow" class="fixed right-4 bottom-10 w-80 rounded-2xl overflow-hidden
           bg-(--card)/70 backdrop-blur-md
           border border-(--border) shadow-xl
           opacity-0 translate-y-6 scale-95
@@ -228,8 +223,7 @@ include 'checkauth.php';
           transition-transform">
 
     <div class="absolute top-0 left-0 w-full h-1 bg-black/10">
-      <div id="countdownBar"
-        class="h-full bg-(--allarm) w-full">
+      <div id="countdownBar" class="h-full bg-(--allarm) w-full">
       </div>
     </div>
 
@@ -237,45 +231,26 @@ include 'checkauth.php';
       <div class="shrink-0">
         <svg width="35" height="35" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <circle cx="32" cy="32" r="28"
-                  stroke="#22c55e"
-                  stroke-width="4"
-                  fill="none"
-                  stroke-dasharray="176"
-                  stroke-dashoffset="176">
-            <animate attributeName="stroke-dashoffset"
-                    from="176"
-                    to="0"
-                    dur="0.4s"
-                    fill="freeze"/>
+          <circle cx="32" cy="32" r="28" stroke="#22c55e" stroke-width="4" fill="none" stroke-dasharray="176"
+            stroke-dashoffset="176">
+            <animate attributeName="stroke-dashoffset" from="176" to="0" dur="0.4s" fill="freeze" />
           </circle>
 
-          <path d="M20 34 L28 42 L44 24"
-                stroke="#22c55e"
-                stroke-width="5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-dasharray="40"
-                stroke-dashoffset="40">
-            <animate attributeName="stroke-dashoffset"
-                    from="40"
-                    to="0"
-                    dur="0.3s"
-                    begin="0.4s"
-                    fill="freeze"/>
+          <path d="M20 34 L28 42 L44 24" stroke="#22c55e" stroke-width="5" stroke-linecap="round"
+            stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.3s" begin="0.4s" fill="freeze" />
           </path>
 
         </svg>
       </div>
 
       <div class="flex-1">
-        <h3 class="font-semibold text-(--text-status)">
+        <h3 class="font-semibold text-(--text-status)" id="popUpWindowText">
           Operazione riuscita
         </h3>
       </div>
 
-      <button id="closePopupBut"
-        class="text-(--text-muted)
+      <button id="closePopupBut" class="text-(--text-muted)
               hover:text-(--text-status)
               text-xl font-bold
               w-6 h-6 flex items-center justify-center
@@ -286,8 +261,9 @@ include 'checkauth.php';
 
     </div>
   </div>
-  
+
   <script src="index.js"></script>
   <script src="theme.js"></script>
 </body>
+
 </html>

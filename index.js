@@ -141,3 +141,15 @@ async function updateIndicator() {
 
 setInterval(updateIndicator, 1000);
 
+document.forms.inviaForm.onclick = async (ev) => {
+  ev.preventDefault();
+  const reponse = await set_alarm(
+    document.getElementById("messaggioInput").value,
+    document.getElementById("descInput").value
+  )
+  document.getElementById('popUpWindowText').textContent = response;
+  setTimeout(() => {
+    popUpWindow.classList.remove('translate-y-10', 'opacity-0')
+  }, 100)
+  startTimer()
+};
