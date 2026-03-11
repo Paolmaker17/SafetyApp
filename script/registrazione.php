@@ -13,19 +13,25 @@ function sanitize($param): string
 }
 
 
-$username = sanitize("username");
-$password = sanitize("password");
+try {
+    $username = sanitize("username");
+    $password = sanitize("password");
 
-$stmt = $conn->execute_query("SELECT * FROM utenti WHERE username = ?", [$username]);
+    $stmt = $conn->execute_query("SELECT * FROM utenti WHERE username = ?", [$username]);
 
-if ($$conn->affected_rows !== 0)
-    throw new Exception("Auth: Username già in uso");
+    if ($$conn->affected_rows !== 0)
+        throw new Exception("Auth: Username già in uso");
 
-$salt = uniqid(mt_rand(1, mt_getrandmax()) . true);
-$crypted_salt = hash('sha512', $salt);
-$crypted_pass = hash('sha512', $password . $crypted_salt);
-$conn->execute_query(
-    "INSERT INTO utenti (username, password, salt, tipo) VALUES (?, ?, ?, 'admin')",
-    [$username, $crypted_pass, $crypted_salt]
-);
-header('Location:index.php');
+    $salt = uniqid(mt_rand(1, mt_getrandmax()) . true);
+    $crypted_salt = hash('sha512', $salt);
+    $crypted_pass = hash('sha512', $password . $crypted_salt);
+    $conn->execute_query(
+        "INSERT INTO utenti (username, password, salt, tipo) VALUES (?, ?, ?, 'admin')",
+        [$username, $crypted_pass, $crypted_salt]
+    );
+    header('Location:index.php');
+} catch (Exception $e) {
+    echo "<h1>Errore nella registrazione</h1>";
+    echo "<p>{$e->getMessage()}</p>";
+    echo "<a href='index.php'>Torna alla pagina principale</a>";
+}
