@@ -47,13 +47,10 @@ try {
     $_SESSION["username"] = $username;
     $_SESSION["time"] = time();
     header(header: 'Location:index.php');
-
+    exit(200);
 } catch (Exception $e) {
-    echo json_encode(
-        [
-            "status" => "error",
-            "messaggio" => $e->getMessage()
-        ]
-    );
+    echo "<h1>Errore nell'autenticazione</h1>";
+    echo "<p>{$e->getMessage()}</p>";
+    echo "<a href='login.html'>Torna al login</a>";
 }
 ?>
