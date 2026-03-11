@@ -9,11 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
- 
-<!-- INIZIO FORM LOGIN -->
 <body class="bg-[var(--bg)] text-[var(--text)] inter select-none">
 
     <!-- Toggle Tema -->
@@ -44,24 +42,24 @@
         </div>
     </div>
 
+    <div class="w-full flex justify-center absolute top-4 -z-1">
+        <img src="FermiLogo.png" alt="Immagine Safety App" class="inevert w-[clamp(300px,18vw,500px)]">
+    </div>
+
     <div class="flex justify-center items-center w-full h-screen">
-        <div class="w-100 bg-[var(--card)] shadow-xl rounded-xl p-6 border border-[var(--border)] h-120">
+        <div class="w-100 bg-[var(--card)] shadow-xl rounded-xl p-6 border border-[var(--border)]">
 
-            <h2 class="text-center mb-4 inter font-semibold text-xl text-[var(--text-status)]">Accedi a <span class="text-(--allarm)">SafetyApp</span>  <br>IIS Fermi Sacconi Ceci Cpia</h2>
-    
-            <div class="text-center">
-                <img src="SafetyApp.png" alt="Immagine Safety App" width="30%" heigth="30%">
-            </div>
+            <h2 class="text-center mb-2 inter font-semibold text-xl text-[var(--text-status)]">Accedi a <span class="text-(--allarm)">SafetyApp</span> <br> IIS Fermi Sacconi Cpia</h2>
 
-            <form action="auth.php" method="POST">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username: </label>
-                    <input required type="username" name="username" placeholder="username" class="form-control"><br>
+            <form action="auth.php" method="POST" class="pt-10 inter">
+                <div class="mb-1/2 flex flex-col">
+                    <div class=" text-xl text-(--text-light) font-bold">Username </div>
+                    <input required type="username" name="username" class="text-xl text-(--text-status) mt-1 bg-(--bg) border-2 border-(--border) rounded-xl py-3 px-1  focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition"><br>
                 </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password: </label>
-                    <input required type="password" name="password" placeholder="Password" class="form-control"><br>
+                <div class="mb-3 flex flex-col pb-[5px]">
+                    <div class=" text-xl text-(--text-light) font-bold">Password </div>
+                    <input required type="password" name="password" class="text-xl text-(--text-status) mt-1 bg-(--bg) border-2 border-(--border) rounded-xl py-3 px-1  focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition"><br>
                 </div>
                 
                 <!--<?php 
@@ -70,11 +68,11 @@
                 <?php endif; ?>-->
 
                 <input type="submit" 
-                    class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg" value="Accedi">
+                    class="mt-10 butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg" value="Accedi">
             </form>
         </div>
     </div>
 
-    <script src="../theme.js"></script>
+    <script src="theme.js"></script>
 </body>
 </html>
