@@ -123,7 +123,7 @@ include 'checkauth.php';
                 class="butt w-full font-extrabold h-18 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
                 Invia Allarme</button>
 
-              <button
+              <button type="button"
                 id="stopAllarmeBtn"
                 class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
                   Stop Allarme
