@@ -307,13 +307,13 @@ include 'checkauth.php';
         <h3 class="font-semibold text-(--text-status) text-[15px]" id="popUpWindowText">
           Operazione riuscita
         </h3>
-        <p class="text-(--text-muted) text-xs mt-0.5">
+        <p class="text-(--text-light) text-xs mt-0.5">
           L'azione è stata completata con successo
         </p>
       </div>
 
       <button id="closePopupBut"
-        class="text-(--text-muted)
+        class="text-(--text-light)
         hover:text-(--text-status)
         w-7 h-7 flex items-center justify-center
         rounded-lg hover:bg-black/10
