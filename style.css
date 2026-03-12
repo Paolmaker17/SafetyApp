@@ -4,6 +4,8 @@
     --soft: #FFF1EB;
     --allarm: #FF7A45;
     --allarm-hover: #FF6A2E;
+    --allarm-stop: hsl(17, 50%, 60%);
+    --allarm-hover-stop: hsl(17, 50%, 50%);
     --border: #F3D2C6;
     --text-light: #7A7A7A;
     --tab-hover: #FFE4D9;
@@ -17,9 +19,9 @@
   --bg: #1E1E1E;
   --card: #2A2A2A;
   --soft: #333333;
-  --allarm: #FF7A45;
-  --allarm-hover: #FF6A2E;
   --border: #3A3A3A;
+  --allarm-stop: hsl(17, 30%, 40%);
+  --allarm-hover-stop: hsl(17, 40%, 40%);
   --text: #F5F5F5;
   --text-light: #B0B0B0;
   --tab-hover: #282525;

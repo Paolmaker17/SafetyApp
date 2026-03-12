@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
 include 'checkauth.php';
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 
@@ -102,33 +102,36 @@ include 'checkauth.php';
 
       <!-- Content Invio Allarme -->
       <div class="flex gap-6" id="invioAllarme">
+          <div class="flex flex-col">
+          <form class="w-1/3 space-y-4 w-full" name="inviaForm">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text" id="messaggioInput"
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
-        <form class="w-1/3 space-y-4" name="inviaForm">
-          <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-            <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text" id="messaggioInput"
-              class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              <datalist id="listAllarm">
+                <option value="Allarme Terremoto"></option>
+                <option value="Allarme Incendio"></option>
+                <option value="Allarme Alluvione"></option>
+                <option value="Allarme Generico"></option>
+              </datalist>
+            </div>
 
-            <datalist id="listAllarm">
-              <option value="Allarme Terremoto"></option>
-              <option value="Allarme Incendio"></option>
-              <option value="Allarme Alluvione"></option>
-              <option value="Allarme Generico"></option>
-            </datalist>
-          </div>
+            <hr class="text-[var(--border)] w-full">
 
-          <hr class="text-[var(--border)]">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center">
+              <button type="submit"
+                class="butt w-full font-extrabold h-18 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+                Invia Allarme</button>
 
-          <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center">
-            <button type="submit"
-              class="butt w-full font-extrabold h-20 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-              Invia Allarme</button>
-          </div>
+              <button
+                id="stopAllarmeBtn"
+                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+                  Stop Allarme
+              </button>
+            </div>
 
-        </form>
-            <button
-            id="stopAllarmeBtn"
-              class="butt w-full font-extrabold h-20 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-              Stop Allarme</button>
+          </form>
+        </div>
 
         <div class="w-2/3 bg-[var(--soft)] border border-[var(--border)] rounded-xl p-4 h-64 flex flex-col">
           <label class="mb-2 font-semibold text-[var(--text-light)]">Descrizione</label>
