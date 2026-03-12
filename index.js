@@ -163,4 +163,4 @@ document.forms.inviaForm.onclick = async (ev) => {
   startTimer()
 };
 
-stopAllarmBtn.onclick = () => { stop_alarm() }
+stopAllarmeBtn.onclick = () => { stop_alarm() }
