@@ -66,12 +66,12 @@ include 'checkauth.php';
 
     <div id="dropdown"
       class="z-1 absolute right-0 mt-2 w-44 bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none transition-all duration-200">
-      <button
+      <button id="profileBtn"
         class="w-full text-left px-4 py-3 text-sm font-semibold border-b border-[var(--border)] text-[var(--text-light)] hover:bg-[var(--soft)] rounded-t-xl transition">
         Profilo
       </button>
 
-      <button
+      <button id="logoutBtn"
         class="w-full text-left px-4 py-3 text-sm font-semibold text-[var(--allarm-off-text)] hover:bg-[var(--allarm-off)]/10 rounded-b-xl transition">
         Logout
       </button>
@@ -253,48 +253,71 @@ include 'checkauth.php';
   </div>
 
   <!-- Pop Up Window -->
-  <div id="popUpWindow" class="fixed right-4 bottom-10 w-80 rounded-2xl overflow-hidden
-          bg-(--card)/70 backdrop-blur-md
-          border border-(--border) shadow-xl
-          opacity-0 translate-y-6 scale-95
-          transition-all duration-300 ease-out
-          hover:scale-[1.02] hover:shadow-2xl
-          transition-transform">
+  <div id="popUpWindow" class="fixed right-6 bottom-12 w-80 rounded-2xl overflow-hidden
+      bg-(--card)/80 backdrop-blur-xl
+      border border-(--border)/60
+      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+      opacity-0 translate-y-8 scale-95
+      transition-all duration-300 ease-out
+      hover:scale-[1.02] hover:shadow-[0_20px_45px_rgba(0,0,0,0.35)]">
 
-    <div class="absolute top-0 left-0 w-full h-1 bg-black/10">
-      <div id="countdownBar" class="h-full bg-(--allarm) w-full">
+    <div class="absolute top-0 left-0 w-full h-[3px] bg-black/10">
+      <div id="countdownBar"
+        class="h-full bg-gradient-to-r from-[#FF7A45] to-[#FF6A2E] w-full transition-all duration-1000">
       </div>
     </div>
 
-    <div class="flex items-center gap-3 p-4 pt-5">
-      <div class="shrink-0">
-        <svg width="35" height="35" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="flex items-center gap-4 p-4 pt-5">
+      <div class="shrink-0 w-11 h-11 flex items-center justify-center
+          rounded-xl bg-green-500/10 border border-green-500/20">
 
-          <circle cx="32" cy="32" r="28" stroke="#22c55e" stroke-width="4" fill="none" stroke-dasharray="176"
+        <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+
+          <circle cx="32" cy="32" r="28"
+            stroke="#22c55e"
+            stroke-width="4"
+            stroke-dasharray="176"
             stroke-dashoffset="176">
-            <animate attributeName="stroke-dashoffset" from="176" to="0" dur="0.4s" fill="freeze" />
+
+            <animate attributeName="stroke-dashoffset"
+              from="176" to="0"
+              dur="0.4s"
+              fill="freeze"/>
           </circle>
 
-          <path d="M20 34 L28 42 L44 24" stroke="#22c55e" stroke-width="5" stroke-linecap="round"
-            stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
-            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.3s" begin="0.4s" fill="freeze" />
+          <path d="M20 34 L28 42 L44 24"
+            stroke="#22c55e"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-dasharray="40"
+            stroke-dashoffset="40">
+
+            <animate attributeName="stroke-dashoffset"
+              from="40" to="0"
+              dur="0.3s"
+              begin="0.4s"
+              fill="freeze"/>
           </path>
 
         </svg>
       </div>
 
       <div class="flex-1">
-        <h3 class="font-semibold text-(--text-status)" id="popUpWindowText">
+        <h3 class="font-semibold text-(--text-status) text-[15px]" id="popUpWindowText">
           Operazione riuscita
         </h3>
+        <p class="text-(--text-muted) text-xs mt-0.5">
+          L'azione è stata completata con successo
+        </p>
       </div>
 
-      <button id="closePopupBut" class="text-(--text-muted)
-              hover:text-(--text-status)
-              text-xl font-bold
-              w-6 h-6 flex items-center justify-center
-              rounded-lg hover:bg-black/10
-              transition">
+      <button id="closePopupBut"
+        class="text-(--text-muted)
+        hover:text-(--text-status)
+        w-7 h-7 flex items-center justify-center
+        rounded-lg hover:bg-black/10
+        transition-all duration-200">
         ✕
       </button>
 
