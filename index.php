@@ -102,7 +102,7 @@ include 'checkauth.php';
 
       <!-- Content Invio Allarme -->
       <div class="flex gap-6" id="invioAllarme">
-          <div class="flex flex-col">
+        <div class="flex flex-col">
           <form class="w-1/3 space-y-4 w-full" name="inviaForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input list="listAllarm" placeholder="Messaggio di Allarme" required type="text" id="messaggioInput"
@@ -200,7 +200,39 @@ include 'checkauth.php';
 
       <!-- Content Utenti-->
       <div class="hidden gap-6" id="utenti">
+        <div class="w-[50%]">
+          <!-- Aggiungi Utente -->
+          <form name="addUserForm">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input placeholder="Username da Aggiungere" required type="text" id="addUsername"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              
+              <input placeholder="Password" required type="password" id="addPassword"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+            
+              <input type="submit" value="Aggiungi Utente"
+                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
+          </form>
 
+        </div>
+
+        <div class="w-[50%]">
+          <!-- Rimuovi Utente -->
+          <form name="deleteUserForm">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input placeholder="Username da Eliminare" required type="text" id="deleteUsername"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              
+              <input placeholder="Password" required type="password" id="deletePassword"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+            
+              <input type="submit" value="Rimuovi Utente"
+                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
+          </form>
+
+        </div>
       </div>
 
     </div>
