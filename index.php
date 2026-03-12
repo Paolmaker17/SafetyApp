@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 include 'checkauth.php';
-?> -->
+?>
 <!DOCTYPE html>
 <html>
 
