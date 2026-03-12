@@ -150,7 +150,7 @@ async function updateIndicator() {
 
 setInterval(updateIndicator, 1000);
 
-document.forms.inviaForm.onclick = async (ev) => {
+document.forms.inviaForm.onsubmit = async (ev) => {
   ev.preventDefault();
   const reponse = await set_alarm(
     document.getElementById("messaggioInput").value,
