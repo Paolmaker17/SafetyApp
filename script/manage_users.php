@@ -1,0 +1,57 @@
+<?php
+include_once('dbconn.php');
+include('checkauth.php');
+
+function sanitize(array $from, string $param): string
+{
+    if (!isset($from[$param]))
+        throw new Exception("Auth: parametro $param vuoto");
+    $param = htmlspecialchars(trim($param));
+    if (empty($param))
+        throw new Exception("Auth: parametro $param vuoto");
+    return $param;
+}
+
+try {
+    switch ($_SERVER['REQUEST_METHOD']) {
+        case 'PATCH':
+        case 'PUT':
+            $req = json_decode(file_get_contents('php://input'), true);
+            $username = sanitize($req, "username");
+            $password = sanitize($req, "password");
+
+            $salt = gen_salt();
+            $pass = salt_pass($salt, $pass);
+
+            $stmt = $conn->prepare(
+                $_SERVER['REQUEST_METHOD'] == 'PATCH'
+                ? "UPDATE utenti SET password = ?, salt = ? WHERE username = ?"
+                : "INSERT INTO utenti(password, salt, username, tipo) VALUES (?, ?, ?, 'admin')"
+            );
+            $ok = $stmt->execute([$pass, $salt, $username]);
+
+            if (!$ok)
+                throw new Exception("Errore nell'operazione");
+
+            if ($stmt->affected_rows < 1)
+                throw new Exception("Errore: nessun utente trovato");
+
+            throw new Exception("Utente aggiunto con successo");
+        case 'DELETE':
+            // $_GET non è riservato alle richieste GET
+            // https://www.php.net/manual/en/reserved.variables.get.php
+            $username = sanitize($_GET, 'username');
+
+            $stmt = $conn->prepare("DELETE FROM utenti WHERE username = ?");
+            $stmt->execute([$username]);
+
+            if ($stmt->affected_rows < 1) {
+                throw new Exception("Errore: nessun utente trovato");
+            }
+
+            throw new Exception("Utente rimosso con successo");
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
