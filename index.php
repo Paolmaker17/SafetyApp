@@ -54,7 +54,7 @@ include 'checkauth.php';
       <img src="user-n.png" class="w-9 h-9 rounded-full border-2 border-[var(--border)] object-cover">
 
       <div class="flex flex-col">
-        <span class="font-semibold text-sm">User Name</span>
+        <span class="font-semibold text-sm"><?php echo $_SESSION["username"] ?></span>
         <span class="text-xs text-[var(--text-light)]">Online</span>
       </div>
 
@@ -71,7 +71,7 @@ include 'checkauth.php';
         Profilo
       </button>
 
-      <button id="logoutBtn"
+      <button id="logoutBtn" onclick="location.assign('script/logout.php')"
         class="w-full text-left px-4 py-3 text-sm font-semibold text-[var(--allarm-off-text)] hover:bg-[var(--allarm-off)]/10 rounded-b-xl transition">
         Logout
       </button>
