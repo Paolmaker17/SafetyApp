@@ -71,7 +71,7 @@ include 'checkauth.php';
         Profilo
       </button>
 
-      <button id="logoutBtn" onclick="location.assign('script/logout.php')"
+      <button id="logoutBtn" onclick="location.assign('logout.php')"
         class="w-full text-left px-4 py-3 text-sm font-semibold text-[var(--allarm-off-text)] hover:bg-[var(--allarm-off)]/10 rounded-b-xl transition">
         Logout
       </button>
