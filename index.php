@@ -204,11 +204,11 @@ include 'checkauth.php';
           <!-- Aggiungi Utente -->
           <form name="addUserForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username da Aggiungere" required type="text" id="addUsername"
+              <input placeholder="Username da Aggiungere" required type="text" name="username"
                   class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Vecchia Password" required type="password" id="oldPasswordAdd"
+              <input placeholder="Password" required type="password" name="password"
                   class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Nuova Password" required type="password" id="newPasswordAdd"
+              <input placeholder="Conferma password" required type="password" name="passwordConfirm"
                   class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
             
               </div>

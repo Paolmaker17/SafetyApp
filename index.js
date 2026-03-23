@@ -150,17 +150,48 @@ async function updateIndicator() {
 
 setInterval(updateIndicator, 1000);
 
+function showToast(text) {
+  document.getElementById('popUpWindowText').textContent = text;
+  setTimeout(() => {
+    popUpWindow.classList.remove('translate-y-10', 'opacity-0')
+  }, 100)
+  startTimer()
+}
+
 document.forms.inviaForm.onsubmit = async (ev) => {
   ev.preventDefault();
   const reponse = await set_alarm(
     document.getElementById("messaggioInput").value,
     document.getElementById("descInput").value
   )
-  document.getElementById('popUpWindowText').textContent = response;
-  setTimeout(() => {
-    popUpWindow.classList.remove('translate-y-10', 'opacity-0')
-  }, 100)
-  startTimer()
+  showToast(response);
 };
 
 stopAllarmeBtn.onclick = () => { stop_alarm() }
+
+document.forms.addUserForm.onsubmit = async (ev) => {
+  ev.preventDefault();
+
+  let data = new FormData(document.forms.addUserForm);
+  data = {
+    username: data.get("username"),
+    password: data.get("password"),
+    passwordConfirm: data.get("password")
+  };
+
+  if (!data.username || !data.password || !data.passwordConfirm) return;
+  if (data.passwordConfirm != data.password) {
+    showToast("Le password non coincidono");
+    return;
+  }
+
+  const { passwordConfirm, ...request } = data;
+
+  const response = await fetch("manage_users.php", {
+    method: "PUT",
+    headers: { 'Content-Type': "application/json" },
+    body: JSON.stringify(request)
+  }).then(it => it.text());
+
+  showToast(response);
+}
