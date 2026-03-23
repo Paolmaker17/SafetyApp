@@ -211,12 +211,17 @@ include 'checkauth.php';
               <input placeholder="Nuova Password" required type="password" id="newPasswordAdd"
                   class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
             
-              <input type="submit" value="Aggiungi Utente"
-                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
+              </div>
+              
+              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
+                <input type="submit" value="Aggiungi Utente"
+                    class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+              </div>
           </form>
 
         </div>
+
+        <div class="border-0 border-r border-(--border)"></div>
 
         <div class="w-[50%]">
           <!-- Rimuovi Utente -->
@@ -229,7 +234,6 @@ include 'checkauth.php';
                   class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
             </div>
           </form>
-
           <!-- Modifica Password -->
           <form name="modifyPasswordForm" class="mt-4">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
