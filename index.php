@@ -229,6 +229,20 @@ include 'checkauth.php';
             </div>
           </form>
 
+          <!-- Modifica Password -->
+          <form name="modifyPasswordForm">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input placeholder="Username" required type="text" id="Username"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              <input placeholder="Vecchia Password" required type="text" id="oldPassword"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              <input placeholder="Nuova Password" required type="text" id="newPassword"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              
+              <input type="submit" value="Modifica Username"
+                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
+          </form>
         </div>
       </div>
 
