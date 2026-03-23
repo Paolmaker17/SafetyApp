@@ -123,10 +123,9 @@ include 'checkauth.php';
                 class="butt w-full font-extrabold h-18 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
                 Invia Allarme</button>
 
-              <button type="button"
-                id="stopAllarmeBtn"
+              <button type="button" id="stopAllarmeBtn"
                 class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-                  Stop Allarme
+                Stop Allarme
               </button>
             </div>
 
@@ -202,21 +201,21 @@ include 'checkauth.php';
       <div class="hidden gap-6" id="utenti">
         <div class="w-[50%]">
           <!-- Aggiungi Utente -->
-          <form name="addUserForm">
+          <form id="addUserForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username da Aggiungere" required type="text" name="username"
-                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
               <input placeholder="Password" required type="password" name="password"
-                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
               <input placeholder="Conferma password" required type="password" name="passwordConfirm"
-                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-            
-              </div>
-              
-              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
-                <input type="submit" value="Aggiungi Utente"
-                    class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-              </div>
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
+            </div>
+
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
+              <input type="submit" value="Aggiungi Utente"
+                class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
           </form>
 
         </div>
@@ -228,24 +227,24 @@ include 'checkauth.php';
           <form name="deleteUserForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username da Eliminare" required type="text" id="deleteUsername"
-                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
               <input type="submit" value="Rimuovi Utente"
-                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
             </div>
           </form>
           <!-- Modifica Password -->
           <form name="modifyPasswordForm" class="mt-4">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username" required type="text" id="Username"
-                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
               <input placeholder="Vecchia Password" required type="text" id="oldPasswordMdf"
-                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
               <input placeholder="Nuova Password" required type="text" id="newPasswordMdf"
-                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
               <input type="submit" value="Modifica Password"
-                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
             </div>
           </form>
         </div>
@@ -289,31 +288,16 @@ include 'checkauth.php';
 
         <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
 
-          <circle cx="32" cy="32" r="28"
-            stroke="#22c55e"
-            stroke-width="4"
-            stroke-dasharray="176"
+          <circle cx="32" cy="32" r="28" stroke="#22c55e" stroke-width="4" stroke-dasharray="176"
             stroke-dashoffset="176">
 
-            <animate attributeName="stroke-dashoffset"
-              from="176" to="0"
-              dur="0.4s"
-              fill="freeze"/>
+            <animate attributeName="stroke-dashoffset" from="176" to="0" dur="0.4s" fill="freeze" />
           </circle>
 
-          <path d="M20 34 L28 42 L44 24"
-            stroke="#22c55e"
-            stroke-width="5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-dasharray="40"
-            stroke-dashoffset="40">
+          <path d="M20 34 L28 42 L44 24" stroke="#22c55e" stroke-width="5" stroke-linecap="round"
+            stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
 
-            <animate attributeName="stroke-dashoffset"
-              from="40" to="0"
-              dur="0.3s"
-              begin="0.4s"
-              fill="freeze"/>
+            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.3s" begin="0.4s" fill="freeze" />
           </path>
 
         </svg>
@@ -328,8 +312,7 @@ include 'checkauth.php';
         </p>
       </div>
 
-      <button id="closePopupBut"
-        class="text-(--text-light)
+      <button id="closePopupBut" class="text-(--text-light)
         hover:text-(--text-status)
         w-7 h-7 flex items-center justify-center
         rounded-lg hover:bg-black/10

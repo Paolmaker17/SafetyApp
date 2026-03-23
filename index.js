@@ -169,10 +169,11 @@ document.forms.inviaForm.onsubmit = async (ev) => {
 
 stopAllarmeBtn.onclick = () => { stop_alarm() }
 
-document.forms.addUserForm.onsubmit = async (ev) => {
+const addUserForm = document.getElementById("addUserForm");
+addUserForm.onsubmit = async (ev) => {
   ev.preventDefault();
 
-  let data = new FormData(document.forms.addUserForm);
+  let data = new FormData(addUserForm);
   data = {
     username: data.get("username"),
     password: data.get("password"),
