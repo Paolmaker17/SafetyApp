@@ -160,7 +160,7 @@ function showToast(text) {
 
 document.forms.inviaForm.onsubmit = async (ev) => {
   ev.preventDefault();
-  const reponse = await set_alarm(
+  const response = await set_alarm(
     document.getElementById("messaggioInput").value,
     document.getElementById("descInput").value
   )

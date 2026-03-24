@@ -21,7 +21,7 @@ try {
             $password = sanitize($req, "password");
 
             $salt = gen_salt();
-            $pass = salt_pass($salt, $pass);
+            $pass = salt_pass($salt, $password);
 
             $stmt = $conn->prepare(
                 $_SERVER['REQUEST_METHOD'] == 'PATCH'
