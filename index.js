@@ -194,5 +194,9 @@ addUserForm.onsubmit = async (ev) => {
     body: JSON.stringify(request)
   }).then(it => it.text());
 
+  addUserForm.querySelectorAll("input[name]").forEach(input => {
+    input.value = ""
+  })
+
   showToast(response);
 }
