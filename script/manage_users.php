@@ -14,6 +14,13 @@ function sanitize(array $from, string $param): string
 
 try {
     switch ($_SERVER['REQUEST_METHOD']) {
+        case 'GET':
+            header('Content-Type: application/json');
+            $result = $conn->query("SELECT username FROM utenti");
+            $val = $result->fetch_array(MYSQLI_ASSOC);
+            $val = array_map(function ($el) {
+                return $el['username']; }, $val);
+            echo json_encode($result);
         case 'PATCH':
         case 'PUT':
             $req = json_decode(file_get_contents('php://input'), true);
@@ -39,7 +46,8 @@ try {
             throw new Exception(
                 $_SERVER['REQUEST_METHOD'] == 'PATCH'
                 ? "Password modificata"
-                : "Utente aggiunto con successo");
+                : "Utente aggiunto con successo"
+            );
         case 'DELETE':
             // $_GET non è riservato alle richieste GET
             // https://www.php.net/manual/en/reserved.variables.get.php
