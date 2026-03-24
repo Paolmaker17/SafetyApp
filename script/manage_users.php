@@ -36,7 +36,10 @@ try {
             if ($stmt->affected_rows < 1)
                 throw new Exception("Errore: nessun utente trovato");
 
-            throw new Exception("Utente aggiunto con successo");
+            throw new Exception(
+                $_SERVER['REQUEST_METHOD'] == 'PATCH'
+                ? "Password modificata"
+                : "Utente aggiunto con successo");
         case 'DELETE':
             // $_GET non è riservato alle richieste GET
             // https://www.php.net/manual/en/reserved.variables.get.php
