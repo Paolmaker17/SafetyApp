@@ -28,7 +28,6 @@ try {
                 ? "UPDATE utenti SET password = ?, salt = ? WHERE username = ?"
                 : "INSERT INTO utenti(password, salt, username, tipo) VALUES (?, ?, ?, 'admin')"
             );
-            echo [$pass, $salt, $username];
             $ok = $stmt->execute([$pass, $salt, $username]);
 
             if (!$ok)
@@ -37,7 +36,7 @@ try {
             if ($stmt->affected_rows < 1)
                 throw new Exception("Errore: nessun utente trovato");
 
-            throw new Exception("Utente aggiunto con successo");
+            throw new Exception("Utente aggiunto con successo".[$pass, $salt, $username]);
         case 'DELETE':
             // $_GET non è riservato alle richieste GET
             // https://www.php.net/manual/en/reserved.variables.get.php
