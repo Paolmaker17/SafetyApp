@@ -66,13 +66,8 @@ include 'checkauth.php';
 
     <div id="dropdown"
       class="z-1 absolute right-0 mt-2 w-44 bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none transition-all duration-200">
-      <button id="profileBtn"
-        class="w-full text-left px-4 py-3 text-sm font-semibold border-b border-[var(--border)] text-[var(--text-light)] hover:bg-[var(--soft)] rounded-t-xl transition">
-        Profilo
-      </button>
-
       <button id="logoutBtn" onclick="location.assign('logout.php')"
-        class="w-full text-left px-4 py-3 text-sm font-semibold text-[var(--allarm-off-text)] hover:bg-[var(--allarm-off)]/10 rounded-b-xl transition">
+        class="w-full text-left px-4 py-3 text-sm font-semibold text-[var(--allarm-off-text)] hover:bg-[var(--allarm-off)]/10 rounded-xl transition">
         Logout
       </button>
     </div>
