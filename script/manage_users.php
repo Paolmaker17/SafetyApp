@@ -28,6 +28,7 @@ try {
                 ? "UPDATE utenti SET password = ?, salt = ? WHERE username = ?"
                 : "INSERT INTO utenti(password, salt, username, tipo) VALUES (?, ?, ?, 'admin')"
             );
+            echo [$pass, $salt, $username];
             $ok = $stmt->execute([$pass, $salt, $username]);
 
             if (!$ok)

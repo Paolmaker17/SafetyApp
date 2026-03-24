@@ -224,7 +224,7 @@ include 'checkauth.php';
 
         <div class="w-[50%]">
           <!-- Rimuovi Utente -->
-          <form name="deleteUserForm">
+          <form id="deleteUserForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username da Eliminare" required type="text" id="deleteUsername"
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
@@ -234,7 +234,7 @@ include 'checkauth.php';
             </div>
           </form>
           <!-- Modifica Password -->
-          <form name="modifyPasswordForm" class="mt-4">
+          <form id="modifyPasswordForm" class="mt-4">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username" required type="text" id="Username"
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">

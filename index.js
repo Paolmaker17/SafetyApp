@@ -170,6 +170,8 @@ document.forms.inviaForm.onsubmit = async (ev) => {
 stopAllarmeBtn.onclick = () => { stop_alarm() }
 
 const addUserForm = document.getElementById("addUserForm");
+const deleteUserForm = document.getElementById("deleteUserForm");
+const modifyPasswordForm = document.getElementById("modifyPasswordForm");
 addUserForm.onsubmit = async (ev) => {
   ev.preventDefault();
 
@@ -199,4 +201,10 @@ addUserForm.onsubmit = async (ev) => {
   })
 
   showToast(response);
+}
+
+deleteUserForm.onsubmit = async (ev) => {
+  ev.preventDefault();
+
+  
 }
