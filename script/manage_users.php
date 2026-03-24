@@ -21,6 +21,7 @@ try {
             $val = array_map(function ($el) {
                 return $el['username']; }, $val);
             echo json_encode($val);
+            break;
         case 'PATCH':
         case 'PUT':
             $req = json_decode(file_get_contents('php://input'), true);
