@@ -206,5 +206,14 @@ addUserForm.onsubmit = async (ev) => {
 deleteUserForm.onsubmit = async (ev) => {
   ev.preventDefault();
 
+  let data = new FormData(deleteUserForm);
+  data = {
+    username: data.get("username")
+  };
+
+  const response = await fetch("manage_users.php?" + new URLSearchParams(data), {
+    method: "DELETE"
+  }).then(it => it.text());
   
+  showToast(response);
 }
