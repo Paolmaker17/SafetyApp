@@ -214,6 +214,8 @@ deleteUserForm.onsubmit = async (ev) => {
   const response = await fetch("manage_users.php?" + new URLSearchParams(data), {
     method: "DELETE"
   }).then(it => it.text());
-  
+
+  deleteUserForm.querySelector("input[name]").value = "";
+
   showToast(response);
 }
