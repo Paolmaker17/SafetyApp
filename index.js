@@ -219,3 +219,34 @@ deleteUserForm.onsubmit = async (ev) => {
 
   showToast(response);
 }
+
+modifyPasswordForm.onsubmit = async (ev) => {
+  ev.preventDefault();
+
+  let data = new FormData(modifyPasswordForm);
+  data = {
+    username: data.get("username"),
+    password: data.get("password"),
+    passwordConfirm: data.get("passwordConfirm")
+  };
+
+  if (!data.username || !data.password || !data.passwordConfirm) return;
+  if (data.passwordConfirm != data.password) {
+    showToast("Le password non coincidono");
+    return;
+  }
+
+  const { passwordConfirm, ...request } = data;
+
+  const response = await fetch("manage_users.php", {
+    method: "PUT",
+    headers: { 'Content-Type': "application/json" },
+    body: JSON.stringify(request)
+  }).then(it => it.text());
+
+  modifyPasswordForm.querySelectorAll("input[name]").forEach(input => {
+    input.value = ""
+  })
+
+  showToast(response);
+}
