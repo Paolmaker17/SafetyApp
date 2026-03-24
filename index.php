@@ -286,8 +286,11 @@ include 'checkauth.php';
 
       <div class="flex-1">
         <h3 class="font-semibold text-(--text-status) text-[15px]" id="popUpWindowText">
-          Operazione riuscita
+          
         </h3>
+        <p class="text-(--text-light) text-xs mt-0.5">
+          Risposta del Server
+        </p>
       </div>
 
       <button id="closePopupBut" class="text-(--text-light)
