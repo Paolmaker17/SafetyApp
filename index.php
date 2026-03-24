@@ -207,7 +207,7 @@ include 'checkauth.php';
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
               <input placeholder="Password" required type="password" name="password"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Conferma password" required type="password" name="passwordConfirm"
+              <input placeholder="Conferma Password" required type="password" name="passwordConfirm"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
             </div>
@@ -238,9 +238,9 @@ include 'checkauth.php';
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
               <input placeholder="Username" required type="text" name="username"
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Vecchia Password" required type="text" name="password"
+              <input placeholder="Nuova Password" required type="text" name="password"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Nuova Password" required type="text" name="passwordConfirm"
+              <input placeholder="Conferma Password" required type="text" name="passwordConfirm"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
               <input type="submit" value="Modifica Password"

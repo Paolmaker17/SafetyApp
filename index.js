@@ -239,7 +239,7 @@ modifyPasswordForm.onsubmit = async (ev) => {
   const { passwordConfirm, ...request } = data;
 
   const response = await fetch("manage_users.php", {
-    method: "PUT",
+    method: "PATCH",
     headers: { 'Content-Type': "application/json" },
     body: JSON.stringify(request)
   }).then(it => it.text());
