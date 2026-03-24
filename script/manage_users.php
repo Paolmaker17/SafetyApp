@@ -28,7 +28,6 @@ try {
                 ? "UPDATE utenti SET password = ?, salt = ? WHERE username = ?"
                 : "INSERT INTO utenti(password, salt, username, tipo) VALUES (?, ?, ?, 'admin')"
             );
-            var_dump([$pass, $salt, $username]);
             $ok = $stmt->execute([$pass, $salt, $username]);
 
             if (!$ok)
