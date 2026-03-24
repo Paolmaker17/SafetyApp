@@ -6,10 +6,10 @@ function sanitize(array $from, string $param): string
 {
     if (!isset($from[$param]))
         throw new Exception("Auth: parametro $param vuoto");
-    $param = htmlspecialchars(trim($param));
-    if (empty($param))
+    $val = htmlspecialchars(trim($from[$param]));
+    if (empty($val))
         throw new Exception("Auth: parametro $param vuoto");
-    return $param;
+    return $val;
 }
 
 try {
