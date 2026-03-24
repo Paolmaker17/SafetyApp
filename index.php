@@ -226,7 +226,7 @@ include 'checkauth.php';
           <!-- Rimuovi Utente -->
           <form id="deleteUserForm">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username da Eliminare" required type="text" id="deleteUsername"
+              <input placeholder="Username da Eliminare" required type="text" name="username"
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
               <input type="submit" value="Rimuovi Utente"
@@ -236,11 +236,11 @@ include 'checkauth.php';
           <!-- Modifica Password -->
           <form id="modifyPasswordForm" class="mt-4">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username" required type="text" id="Username"
+              <input placeholder="Username" required type="text" name="username"
                 class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Vecchia Password" required type="text" id="oldPasswordMdf"
+              <input placeholder="Vecchia Password" required type="text" name="password"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Nuova Password" required type="text" id="newPasswordMdf"
+              <input placeholder="Nuova Password" required type="text" name="passwordConfirm"
                 class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
               <input type="submit" value="Modifica Password"
