@@ -17,7 +17,7 @@ try {
         case 'GET':
             header('Content-Type: application/json');
             $result = $conn->query("SELECT username FROM utenti");
-            echo json_encode($result->fetch_array(MYSQLI_ASSOC));
+            echo json_encode($result->fetch_all(MYSQLI_ASSOC));
         case 'PATCH':
         case 'PUT':
             $req = json_decode(file_get_contents('php://input'), true);
