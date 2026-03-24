@@ -20,7 +20,7 @@ try {
             $val = $result->fetch_array(MYSQLI_ASSOC);
             $val = array_map(function ($el) {
                 return $el['username']; }, $val);
-            echo json_encode($result);
+            echo json_encode($val);
         case 'PATCH':
         case 'PUT':
             $req = json_decode(file_get_contents('php://input'), true);
