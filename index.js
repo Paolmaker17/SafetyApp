@@ -177,7 +177,7 @@ addUserForm.onsubmit = async (ev) => {
   data = {
     username: data.get("username"),
     password: data.get("password"),
-    passwordConfirm: data.get("password")
+    passwordConfirm: data.get("passwordConfirm")
   };
 
   if (!data.username || !data.password || !data.passwordConfirm) return;
