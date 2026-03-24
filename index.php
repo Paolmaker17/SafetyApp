@@ -283,33 +283,11 @@ include 'checkauth.php';
     </div>
 
     <div class="flex items-center gap-4 p-4 pt-5">
-      <div class="shrink-0 w-11 h-11 flex items-center justify-center
-          rounded-xl bg-green-500/10 border border-green-500/20">
-
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
-
-          <circle cx="32" cy="32" r="28" stroke="#22c55e" stroke-width="4" stroke-dasharray="176"
-            stroke-dashoffset="176">
-
-            <animate attributeName="stroke-dashoffset" from="176" to="0" dur="0.4s" fill="freeze" />
-          </circle>
-
-          <path d="M20 34 L28 42 L44 24" stroke="#22c55e" stroke-width="5" stroke-linecap="round"
-            stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
-
-            <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.3s" begin="0.4s" fill="freeze" />
-          </path>
-
-        </svg>
-      </div>
 
       <div class="flex-1">
         <h3 class="font-semibold text-(--text-status) text-[15px]" id="popUpWindowText">
           Operazione riuscita
         </h3>
-        <p class="text-(--text-light) text-xs mt-0.5">
-          L'azione è stata completata con successo
-        </p>
       </div>
 
       <button id="closePopupBut" class="text-(--text-light)
