@@ -193,63 +193,73 @@ include 'checkauth.php';
       </div>-->
 
       <!-- Content Utenti-->
-      <div class="hidden gap-6" id="utenti">
-        <div class="w-[50%]">
-          <!-- Aggiungi Utente -->
-          <form id="addUserForm">
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username da Aggiungere" required type="text" name="username"
-                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Password" required type="password" name="password"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Conferma Password" required type="password" name="passwordConfirm"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+      <div class="hidden gap-6 flex flex-col" id="utenti">
 
-            </div>
+        <div class="flex flex-row w-full gap-[3vh]">
+          <div class="w-[48%]">
+            <!-- Aggiungi Utente -->
+            <form id="addUserForm">
+              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+                <input placeholder="Username da Aggiungere" required type="text" name="username"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                <input placeholder="Password" required type="password" name="password"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                <input placeholder="Conferma Password" required type="password" name="passwordConfirm"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
 
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
-              <input type="submit" value="Aggiungi Utente"
-                class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
-          </form>
+              </div>
 
+              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
+                <input type="submit" value="Aggiungi Utente"
+                  class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+              </div>
+            </form>
+
+          </div>
+
+          <div class="border-0 border-r-2 border-dashed border-(--border)"></div>
+
+          <div class="w-[48%]">
+            <!-- Rimuovi Utente -->
+            <form id="deleteUserForm">
+              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+                <input placeholder="Username da Eliminare" required type="text" name="username"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
+                <input type="submit" value="Rimuovi Utente"
+                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+              </div>
+            </form>
+            <!-- Modifica Password -->
+            <form id="modifyPasswordForm" class="mt-4">
+              <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+                <input placeholder="Username" required type="text" name="username"
+                  class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                <input placeholder="Nuova Password" required type="text" name="password"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+                <input placeholder="Conferma Password" required type="text" name="passwordConfirm"
+                  class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
+                <input type="submit" value="Modifica Password"
+                  class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+              </div>
+            </form>
+          </div>
         </div>
 
-        <div class="border-0 border-r border-(--border)"></div>
+        <hr class="text-(--border)">
 
-        <div class="w-[50%]">
-          <!-- Rimuovi Utente -->
-          <form id="deleteUserForm">
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username da Eliminare" required type="text" name="username"
-                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-
-              <input type="submit" value="Rimuovi Utente"
-                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
-          </form>
-          <!-- Modifica Password -->
-          <form id="modifyPasswordForm" class="mt-4">
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username" required type="text" name="username"
-                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Nuova Password" required type="text" name="password"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Conferma Password" required type="text" name="passwordConfirm"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-
-              <input type="submit" value="Modifica Password"
-                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
-          </form>
+        <div>
+          
         </div>
+
       </div>
 
     </div>
 
     <!-- Stato Allarme -->
     <div
-      class="text-(--text-status) top-12 w-130 max-w-full bg-[var(--card)] shadow-xl rounded-2xl p-4 border border-[var(--border)] mt-10">
+      class="mb-4 text-(--text-status) top-12 w-130 max-w-full bg-[var(--card)] shadow-xl rounded-2xl p-4 border border-[var(--border)] mt-10">
       <div class="flex items-center gap-3 h-min">
         <div id="statusDot" class="w-3 h-3 bg-gray-500 rounded-full m-1"></div>
         <div class="w-px self-stretch bg-(--text-light)"></div>
