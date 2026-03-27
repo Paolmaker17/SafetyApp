@@ -172,6 +172,7 @@ stopAllarmeBtn.onclick = () => { stop_alarm() }
 const addUserForm = document.getElementById("addUserForm");
 const deleteUserForm = document.getElementById("deleteUserForm");
 const modifyPasswordForm = document.getElementById("modifyPasswordForm");
+const usersTable = document.getElementById("usersTable");
 addUserForm.onsubmit = async (ev) => {
   ev.preventDefault();
 
@@ -201,6 +202,7 @@ addUserForm.onsubmit = async (ev) => {
   })
 
   showToast(response);
+  usersList();
 }
 
 deleteUserForm.onsubmit = async (ev) => {
@@ -218,6 +220,7 @@ deleteUserForm.onsubmit = async (ev) => {
   deleteUserForm.querySelector("input[name]").value = "";
 
   showToast(response);
+  usersList();
 }
 
 modifyPasswordForm.onsubmit = async (ev) => {
@@ -249,4 +252,29 @@ modifyPasswordForm.onsubmit = async (ev) => {
   })
 
   showToast(response);
+}
+
+async function usersList(ev) {
+  const response = await fetch("manage_users.php", {
+    method: "GET"
+  }).then(it => it);
+
+  response.forEach(user => {
+    const row = document.createElement('tr');
+    row.className = "border-b border-(--border) transition";
+
+    row.innerHTML = `
+      <td class="p-3 flex items-center gap-3">
+        <img src="user-n.png" class="w-8 h-8 rounded-full">
+        <span class="font-semibold">${user.username}</span>
+      </td>`;
+
+    usersTable.appendChild(row);
+  });
+
+  showToast(response);
+}
+
+usersTable.onload = async () => {
+  usersList()
 }
