@@ -257,7 +257,7 @@ modifyPasswordForm.onsubmit = async (ev) => {
 async function usersList(ev) {
   usersTable.innerHTML = '...';
   const response = await fetch("manage_users.php").then(it => it.json());
-  
+
   usersTable.innerHTML = '';
   response.forEach(user => {
     const row = document.createElement('tr');
@@ -266,6 +266,10 @@ async function usersList(ev) {
     row.innerHTML = `
       <td class="p-3 flex items-center gap-3">
         <span class="font-semibold">${user}</span>
+      </td>
+      <td>
+      <input type="submit" value="Rimuovi Utente"
+          class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
       </td>`;
 
     usersTable.appendChild(row);

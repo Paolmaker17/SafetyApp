@@ -215,6 +215,38 @@ include 'checkauth.php';
 
           <hr class="my-4 text-(--border)">
 
+          <!-- Modifica Password -->
+          <form id="modifyPasswordForm" class="mt-4">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input placeholder="Username" required type="text" name="username"
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              <input placeholder="Nuova Password" required type="text" name="password"
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+              <input placeholder="Conferma Password" required type="text" name="passwordConfirm"
+                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
+              <input type="submit" value="Modifica Password"
+                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
+          </form>
+
+          
+
+        </div>
+
+        <div class="border-0 border-r-2 border-dashed border-(--border)"></div>
+
+        <div class="w-[50%]">
+          <!-- Rimuovi Utente
+          <form id="deleteUserForm">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
+              <input placeholder="Username da Eliminare" required type="text" name="username"
+                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
+
+              <input type="submit" value="Rimuovi Utente"
+                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
+            </div>
+          </form> -->
           <!-- Lista Utenti -->
           <div id="usersList">
             
@@ -241,37 +273,7 @@ include 'checkauth.php';
             </div>
 
           </div>
-
-        </div>
-
-        <div class="border-0 border-r-2 border-dashed border-(--border)"></div>
-
-        <div class="w-[50%]">
-          <!-- Rimuovi Utente -->
-          <form id="deleteUserForm">
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username da Eliminare" required type="text" name="username"
-                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-
-              <input type="submit" value="Rimuovi Utente"
-                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
-          </form>
-
-          <!-- Modifica Password -->
-          <form id="modifyPasswordForm" class="mt-4">
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
-              <input placeholder="Username" required type="text" name="username"
-                class="text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Nuova Password" required type="text" name="password"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-              <input placeholder="Conferma Password" required type="text" name="passwordConfirm"
-                class="mt-3 text-[var(--text-light)] font-semibold w-full p-3 rounded-xl border border-[var(--border)] focus:border-[var(--allarm)] focus:ring-4 focus:ring-[var(--allarm)]/20 outline-none transition bg-[var(--card)]">
-
-              <input type="submit" value="Modifica Password"
-                class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-            </div>
-          </form>
+          
         </div>
       </div>
 
