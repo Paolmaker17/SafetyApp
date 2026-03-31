@@ -250,26 +250,13 @@ include 'checkauth.php';
           <!-- Lista Utenti -->
           <div id="usersList">
             
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3 mt-3">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl px-3 mt-3">
               <!--<input type="submit" value="Aggiungi Utente"
                 class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
               -->
-              <table id="usersTable" class="w-full border-collapse text-sm">
+              <div id="usersTable" class="w-full flex flex-col text-sm">
 
-                <tbody id="usersTableBody">
-                  <tr class="border border-(--border) transition">
-                    <td class="p-3 font-semibold">Mario</td>
-                    <td class="p-3">
-                      <span class="px-2 py-1 text-xs rounded-full bg-green-500/10 text-green-500">
-                        Online
-                      </span>
-                      <span class="px-2 py-1 text-xs rounded-full bg-red-500/10 text-red-500">
-                        Offline
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              </div>
             </div>
 
           </div>
