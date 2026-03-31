@@ -255,7 +255,7 @@ modifyPasswordForm.onsubmit = async (ev) => {
 }
 
 async function usersList(ev) {
-  const response = await fetch("manage_users.php").then(it => it);
+  const response = await fetch("manage_users.php").then(it => it.json());
 
   response.forEach(user => {
     const row = document.createElement('tr');
