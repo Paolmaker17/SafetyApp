@@ -278,7 +278,7 @@ async function usersList(ev) {
               usersList();
             }
           },
-          "Remove"
+          "Rimuovi"
         ),
       ),
     ),
