@@ -255,8 +255,10 @@ modifyPasswordForm.onsubmit = async (ev) => {
 }
 
 async function usersList(ev) {
+  usersTable.innerHTML = '...';
   const response = await fetch("manage_users.php").then(it => it.json());
-
+  
+  usersTable.innerHTML = '';
   response.forEach(user => {
     const row = document.createElement('tr');
     row.className = "border-b border-(--border) transition";
