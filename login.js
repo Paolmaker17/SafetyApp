@@ -71,8 +71,9 @@ form.onsubmit = async (ev) => {
     body: new FormData(form)
   })
 
-  if(response.status == 200)
-    window.location.href=response.headers.get('location');
+  const location = response.headers.get('location');
+  if(response.status == 200 && location)
+    window.location.assign(location);
 
   showToast(await response.text())
 }
