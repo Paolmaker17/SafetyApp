@@ -50,5 +50,6 @@ try {
     exit(200);
 } catch (Exception $e) {
     echo $e->getMessage();
+    exit(401);
 }
 ?>

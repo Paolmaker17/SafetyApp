@@ -69,7 +69,10 @@ form.onsubmit = async (ev) => {
   const response = await fetch("auth.php", {
     method: "POST",
     body: new FormData(form)
-  }).then(it => it.text())
+  })
 
-  showToast(response)
+  if(response.status == 200)
+    window.location.href=response.headers.get('location');
+
+  showToast(await response.text())
 }
