@@ -46,7 +46,7 @@ try {
     $_SESSION["autenticato"] = true;
     $_SESSION["username"] = $username;
     $_SESSION["time"] = time();
-    header(header: 'Location: index.php');
+    header('Location: index.php');
     exit(200);
 } catch (Exception $e) {
     echo $e->getMessage();
