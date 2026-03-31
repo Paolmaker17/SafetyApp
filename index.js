@@ -262,31 +262,27 @@ async function usersList(ev) {
 
   usersTable.append(
     ...response.map(user =>
-      elClass("tr", "border-b border-t border-(--border) transition flex flex-wrap",
-        elClass("td", "p-3 flex items-center gap-3",
+      elClass("div", "border-b border-t border-(--border) transition flex flex-wrap",
           elClass("span", "font-semibold",
             user
           ),
         ),
-        elClass("td", "p-3 relative right-0",
-          elProps("span",
-            {
-              classList: "px-2 py-1 text-xs rounded-full bg-red-500/10 text-red-500",
-              onclick: async () => {
-                const response = await fetch("manage_users.php?" + new URLSearchParams({ username: user }),
-                  { method: "DELETE" }
-                ).then(it => it.text());
-                
-                showToast(response);
-                usersList();
-              }
-            },
-            "Remove"
-          ),
+        elProps("span",
+          {
+            classList: "px-2 py-1 text-xs rounded-full bg-red-500/10 text-red-500",
+            onclick: async () => {
+              const response = await fetch("manage_users.php?" + new URLSearchParams({ username: user }),
+                { method: "DELETE" }
+              ).then(it => it.text());
+              
+              showToast(response);
+              usersList();
+            }
+          },
+          "Remove"
         ),
-      )
+      ),
     )
-  )
 }
 
 usersList();
