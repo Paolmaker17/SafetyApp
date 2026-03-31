@@ -68,14 +68,11 @@ form.onsubmit = async (ev) => {
 
   const response = await fetch("auth.php", {
     method: "POST",
-    headers: {'Access-Control-Expose-Headers': 'Location'},
-    redirect: 'manual',
     body: new FormData(form)
   })
 
-  const location = response.redirect;
-  if(response.status == 200 && location){
-    window.location.assign(location);
+  if(response.status == 200){
+    window.location.assign('index.php');
     return;
   }
 
