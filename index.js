@@ -281,7 +281,7 @@ async function usersList(ev) {
                 usersList();
               }
             },
-            Remove
+            "Remove"
           ),
         ),
       )
