@@ -268,7 +268,7 @@ async function usersList(ev) {
             user
           ),
         ),
-        elClass("td", "p-3 fixed right-0",
+        elClass("td", "p-3 relative right-0",
           elProps("span",
             {
               classList: "px-2 py-1 text-xs rounded-full bg-red-500/10 text-red-500",
