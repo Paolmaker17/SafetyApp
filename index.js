@@ -262,10 +262,9 @@ async function usersList(ev) {
 
   usersTable.append(
     ...response.map(user =>
-      elClass("div", "border-b border-t border-(--border) transition flex flex-wrap",
-          elClass("span", "font-semibold",
-            user
-          ),
+      elClass("div", "border-b border-t border-(--border) transition flex",
+        elClass("span", "font-semibold flex-1",
+          user
         ),
         elProps("span",
           {
@@ -274,7 +273,7 @@ async function usersList(ev) {
               const response = await fetch("manage_users.php?" + new URLSearchParams({ username: user }),
                 { method: "DELETE" }
               ).then(it => it.text());
-              
+
               showToast(response);
               usersList();
             }
@@ -282,7 +281,8 @@ async function usersList(ev) {
           "Remove"
         ),
       ),
-    )
+    ),
+  )
 }
 
 usersList();
