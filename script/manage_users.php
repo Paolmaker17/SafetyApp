@@ -53,6 +53,7 @@ try {
             // $_GET non è riservato alle richieste GET
             // https://www.php.net/manual/en/reserved.variables.get.php
             $username = sanitize($_GET, 'username');
+            if ($username == 'ADMIN') throw new Exception("Errore: Impossibile rimuovere l'utente 'ADMIN'");
 
             $stmt = $conn->prepare("DELETE FROM utenti WHERE username = ?");
             $stmt->execute([$username]);
