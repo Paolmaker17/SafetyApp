@@ -262,7 +262,7 @@ async function usersList(ev) {
 
   usersTable.append(
     ...response.map(user =>
-      elClass("div", "border-b first:border-t border-(--border) transition flex h-8 items-center",
+      elClass("div", "border-t first:border-t-0 border-(--border) transition flex h-8 items-center",
         elClass("span", "font-semibold flex-1",
           user
         ),
