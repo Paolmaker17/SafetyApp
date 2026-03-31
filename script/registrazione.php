@@ -30,7 +30,5 @@ try {
     );
     header('Location:index.php');
 } catch (Exception $e) {
-    echo "<h1>Errore nella registrazione</h1>";
-    echo "<p>{$e->getMessage()}</p>";
-    echo "<a href='index.php'>Torna alla pagina principale</a>";
+    echo $e->getMessage();
 }

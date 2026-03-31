@@ -49,8 +49,6 @@ try {
     header(header: 'Location: index.php');
     exit(200);
 } catch (Exception $e) {
-    echo "<h1>Errore nell'autenticazione</h1>";
-    echo "<p>{$e->getMessage()}</p>";
-    echo "<a href='login.html'>Torna al login</a>";
+    echo $e->getMessage();
 }
 ?>

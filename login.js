@@ -61,3 +61,14 @@ function showToast(text) {
   }, 100)
   startTimer()
 }
+
+document.forms[0].onsubmit = async (ev) => {
+  ev.preventDefault()
+
+  const response = await fetch("auth.php", {
+    method: "POST",
+    body: new FormData(document.forms[0])
+  }).then(it => it.text())
+
+  showToast(response)
+}
