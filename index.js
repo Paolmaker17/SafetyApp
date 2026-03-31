@@ -255,9 +255,7 @@ modifyPasswordForm.onsubmit = async (ev) => {
 }
 
 async function usersList(ev) {
-  const response = await fetch("manage_users.php", {
-    method: "GET"
-  }).then(it => it);
+  const response = await fetch("manage_users.php").then(it => it);
 
   response.forEach(user => {
     const row = document.createElement('tr');
@@ -271,10 +269,6 @@ async function usersList(ev) {
 
     usersTable.appendChild(row);
   });
-
-  showToast(response);
 }
 
-usersTable.onload = async () => {
-  usersList()
-}
+usersList();
