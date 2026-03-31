@@ -68,6 +68,7 @@ form.onsubmit = async (ev) => {
 
   const response = await fetch("auth.php", {
     method: "POST",
+    redirect: 'manual',
     body: new FormData(form)
   })
 
