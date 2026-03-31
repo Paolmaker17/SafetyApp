@@ -72,7 +72,7 @@ form.onsubmit = async (ev) => {
     body: new FormData(form)
   })
 
-  const location = response.headers.get('location');
+  const location = response.headers.get('Location');
   if(response.status == 200 && location){
     window.location.assign(location);
     return;
