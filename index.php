@@ -250,7 +250,7 @@ include 'checkauth.php';
           <!-- Lista Utenti -->
           <div id="usersList">
             
-            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl px-3 mt-3">
+            <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl py-1 px-3 mt-3">
               <!--<input type="submit" value="Aggiungi Utente"
                 class="butt w-full font-extrabold h-15 bg-[var(--allarm)] hover:bg-[var(--allarm-hover)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
               -->
