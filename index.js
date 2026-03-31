@@ -170,8 +170,6 @@ document.forms.inviaForm.onsubmit = async (ev) => {
 stopAllarmeBtn.onclick = () => { stop_alarm() }
 
 const addUserForm = document.getElementById("addUserForm");
-// TODO: delete
-const deleteUserForm = document.getElementById("deleteUserForm");
 const modifyPasswordForm = document.getElementById("modifyPasswordForm");
 const usersTable = document.getElementById("usersTable");
 addUserForm.onsubmit = async (ev) => {
@@ -201,25 +199,6 @@ addUserForm.onsubmit = async (ev) => {
   addUserForm.querySelectorAll("input[name]").forEach(input => {
     input.value = ""
   })
-
-  showToast(response);
-  usersList();
-}
-
-// TODO: delete
-deleteUserForm.onsubmit = async (ev) => {
-  ev.preventDefault();
-
-  let data = new FormData(deleteUserForm);
-  data = {
-    username: data.get("username")
-  };
-
-  const response = await fetch("manage_users.php?" + new URLSearchParams(data), {
-    method: "DELETE"
-  }).then(it => it.text());
-
-  deleteUserForm.querySelector("input[name]").value = "";
 
   showToast(response);
   usersList();
