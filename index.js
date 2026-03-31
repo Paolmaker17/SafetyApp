@@ -263,8 +263,7 @@ async function usersList(ev) {
 
     row.innerHTML = `
       <td class="p-3 flex items-center gap-3">
-        <img src="user-n.png" class="w-8 h-8 rounded-full">
-        <span class="font-semibold">${user.username}</span>
+        <span class="font-semibold">${user}</span>
       </td>`;
 
     usersTable.appendChild(row);
