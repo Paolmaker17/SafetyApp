@@ -170,7 +170,6 @@ document.forms.inviaForm.onsubmit = async (ev) => {
 stopAllarmeBtn.onclick = () => { stop_alarm() }
 
 const addUserForm = document.getElementById("addUserForm");
-const deleteUserForm = document.getElementById("deleteUserForm");
 const modifyPasswordForm = document.getElementById("modifyPasswordForm");
 const usersTable = document.getElementById("usersTable");
 addUserForm.onsubmit = async (ev) => {
@@ -200,24 +199,6 @@ addUserForm.onsubmit = async (ev) => {
   addUserForm.querySelectorAll("input[name]").forEach(input => {
     input.value = ""
   })
-
-  showToast(response);
-  usersList();
-}
-
-deleteUserForm.onsubmit = async (ev) => {
-  ev.preventDefault();
-
-  let data = new FormData(deleteUserForm);
-  data = {
-    username: data.get("username")
-  };
-
-  const response = await fetch("manage_users.php?" + new URLSearchParams(data), {
-    method: "DELETE"
-  }).then(it => it.text());
-
-  deleteUserForm.querySelector("input[name]").value = "";
 
   showToast(response);
   usersList();
@@ -254,26 +235,58 @@ modifyPasswordForm.onsubmit = async (ev) => {
   showToast(response);
 }
 
+function el(type, ...children) {
+  const elem = document.createElement(type);
+  elem.append(...children);
+  return elem;
+}
+
+function elClass(type, className, ...children) {
+  const elem = el(type, ...children);
+  elem.classList = className;
+  return elem;
+}
+
+function elProps(type, props, ...children) {
+  const elem = el(type, ...children);
+  for (const n in props) {
+    elem[n] = props[n];
+  }
+  return elem;
+}
+
 async function usersList(ev) {
   usersTable.innerHTML = '...';
   const response = await fetch("manage_users.php").then(it => it.json());
-
   usersTable.innerHTML = '';
-  response.forEach(user => {
-    const row = document.createElement('tr');
-    row.className = "border-b border-(--border) transition";
 
-    row.innerHTML = `
-      <td class="p-3 flex items-center gap-3">
-        <span class="font-semibold">${user}</span>
-      </td>
-      <td>
-      <input type="submit" value="Rimuovi Utente"
-          class="butt mt-3 w-full font-extrabold h-15 bg-[var(--allarm-stop)] hover:bg-[var(--allarm-hover-stop)] text-white rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg">
-      </td>`;
-
-    usersTable.appendChild(row);
-  });
+  usersTable.append(
+    ...response.map(user =>
+      elClass("tr", "border-b border-(--border) transition",
+        elClass("td", "p-3 flex items-center gap-3",
+          elClass("span", "font-semibold",
+            user
+          ),
+        ),
+        elClass("td", "p-3",
+          elProps("span",
+            {
+              classList: "px-2 py-1 text-xs rounded-full bg-red-500/10 text-red-500",
+              onclick: async () => {
+                const response = await fetch("manage_users.php?" + new URLSearchParams({ username: user }),
+                  { method: "DELETE" }
+                ).then(it => it.text());
+                
+                showToast(response);
+                usersList();
+              }
+            },
+            Remove
+          ),
+        ),
+      )
+    )
+  )
 }
 
 usersList();
