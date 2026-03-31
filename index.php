@@ -213,8 +213,6 @@ include 'checkauth.php';
             </div>
           </form>
 
-          <hr class="my-4 text-(--border)">
-
           <!-- Modifica Password -->
           <form id="modifyPasswordForm" class="mt-4">
             <div class="bg-[var(--soft)] border border-[var(--border)] rounded-xl p-3">
