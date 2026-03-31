@@ -13,7 +13,8 @@ function sanitize($param): string
 }
 
 try {
-
+    session_start();
+    session_unset();
     $username = sanitize('username');
     $password = sanitize('password');
 
