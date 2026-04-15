@@ -1,8 +1,11 @@
 <?php
+
+$env = parse_ini_file('.env');
+$DB_PASSWORD = $env["DB_PASSWORD"];
+
 $DB_SERVER = "127.0.0.1";
 // $DB_SERVER = "172.20.1.13";
 $DB_USERNAME = "root";
-$DB_PASSWORD = "Safety#App123_";
 $DB_NAME = "SAFETYAPP";
 
 $conn = null;
