@@ -1,0 +1,38 @@
+<?php
+// IMPLEMENTAZIONE PRECEDENTE (LETTURA DAL DB)
+// include 'dbconn.php';
+// // Query per cercare nella tabella log la riga con stato = 1
+// $sql = "SELECT * FROM LOG join Allarmi on FK_ID_ALLARME = ID_ALLARME WHERE stato = 1 LIMIT 1";
+// $result = $conn->query($sql);
+// // Controlla se è stata trovata una corrispondenza
+// if ($result->num_rows > 0) {
+//     // Preleva il record corrispondente
+//     $row = $result->fetch_assoc();
+
+//     // Restituisce il record come JSON
+//     echo htmlspecialchars_decode(json_encode($row));
+// } else {
+//     echo json_encode(["STATO" => 0, "MESSAGGIO" => "No Pericolo", "DESCRIZIONE" => "tutto ok"]);
+// }
+
+// // Chiudi la connessione
+// $conn->close();
+
+header('Content-Type: application/json; charset=utf-8');
+
+$data = [];
+if ($contents = file_get_contents("/tmp/emergency")) {
+    $data = json_decode($contents, true);
+    if (!is_array($data))
+        $data = [];
+}
+
+$data['STATO'] = $data['STATO'] ?? 0;
+if (!isset($data['MESSAGGIO']))
+    $data['MESSAGGIO'] = $data['STATO'] == 0 ? "Nessun pericolo" : "Emergenza";
+
+$data['DESCRIZIONE'] = $data['DESCRIZIONE'] ?? "Nessuna descrizione fornita";
+
+echo json_encode($data);
+
+?>
