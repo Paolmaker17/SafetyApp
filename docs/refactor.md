@@ -70,6 +70,8 @@ accessibile (il problema descritto nella [prima intestazione](#rimuovere-le-chia
 
 ### Soluzione
 
+##### 21/04/2026 - abbiamo optato per la soluzione 1 per l'implemetazione, ogni volta verrà inviato `id: 4` dal pannello web
+
 Il pannello web, seppur potrebbe scegliere tra degli allarmi preimpostati, non
 comporta problemi nella scrittura manuale del messaggio di allarme, pertanto
 basterebbe aggiungere un campo `messaggio` (o `MESSAGGIO` per rispettare la
